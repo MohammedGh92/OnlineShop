@@ -1,0 +1,11 @@
+module.exports = {
+  STORE_KEY: 'a56z0fzrNpl^2',
+  BASE_URL: 'http://someurl.com',
+  Color: {
+    c1: '#F37A00',
+    c2: '#EF0016',
+    white: '#FFFFFF',
+    c3: '#03022C',
+    darkGrey:'#5D5E62',
+  },
+};
