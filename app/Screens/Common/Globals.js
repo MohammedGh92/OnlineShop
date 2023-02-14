@@ -8,6 +8,7 @@ module.exports = {
     c3: '#03022C',
     darkGrey:'#5D5E62',
     borderColor:'#EAEAEA',
-    background:'#FAFAFA'
+    background:'#FAFAFA',
+    grey:'#DDDDDD',
   },
 };

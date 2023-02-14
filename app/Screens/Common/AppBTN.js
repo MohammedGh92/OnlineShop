@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {View,Dimensions,Text,TouchableOpacity} from 'react-native';
+import React from 'react';
+import {View,Text,TouchableOpacity} from 'react-native';
 const GLOBAL = require('./Globals');
 import {normalize,heightPixel,widthPixel} from './Utils/PixelNormalization';
 

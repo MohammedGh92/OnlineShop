@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const GLOBAL = require('./Globals');
 import {normalize} from './Utils/PixelNormalization';

@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import {View,Dimensions,Text,TouchableOpacity,StyleSheet} from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
+import React from 'react';
+import {View} from 'react-native';
 const GLOBAL = require('./Globals');
 import {normalize} from './Utils/PixelNormalization';
 

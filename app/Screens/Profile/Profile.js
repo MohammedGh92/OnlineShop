@@ -1,36 +1,28 @@
 import React, {Component} from 'react';
-import {TouchableOpacity,StyleSheet,Dimensions,View,Text,ScrollView,PixelRatio} from 'react-native';
-const ScreenHeight=Dimensions.get('window').height;
+import {Dimensions,View,ScrollView} from 'react-native';
 const ScreenWidth=Dimensions.get('window').width;
-import {AppText,AppImage,AppRoundedImage,AppCircleIcon,AppBTN,AppTextInput,AppBar,AppIcon,AppTopBar} from '../Common/';
+import {AppRoundedImage,AppTextInput,AppTopBar,AppText,AppBTN} from '../Common/';
 const GLOBAL = require('../Common/Globals');
-import Icon from 'react-native-vector-icons/Entypo';
-import {fontPixel,heightPixel,widthPixel} from '../Common/Utils/PixelNormalization';
+import {fontPixel,heightPixel,widthPixel,tstOne} from '../Common/Utils/PixelNormalization';
 
 class Profile extends React.Component{
-
   render() {
     return (
       <ScrollView>
-        <View style={{alignItems:'center',justifyContent:'center',
+        <View style={{alignItems:'center',
         flexDirection:'column',
         height:heightPixel(787),width:ScreenWidth}}>
-
-        <View style={{flex:2}}>
           <AppTopBar/>
-          <View style={{flex:1}}/>
-        </View>
-        <View style={{justifyContent:'center',backgroundColor:'yellow',flex:5}}>
-          <AppRoundedImage/>
-        </View>
-        <View style={{backgroundColor:'green',flex:8}}/>
-        <View style={{backgroundColor:'red',flex:6}}/>
-        <View style={{backgroundColor:'blue',flex:2}}/>
-
-        <View style={{height:heightPixel(100),width:widthPixel(100),backgroundColor:'red'}}/>
-        <View style={{height:heightPixel(100),width:widthPixel(100),backgroundColor:'green'}}/>
-        <View style={{height:heightPixel(100),width:widthPixel(100),backgroundColor:'red'}}/>
-
+        <AppRoundedImage marginTop={30} width={110} height={115}/>
+        <AppTextInput marginTop={15} name={'account'} placeholder={'First name'}/>
+        <AppTextInput marginTop={5} name={'account'} placeholder={'Last name'}/>
+        <AppTextInput marginTop={5} name={'cellphone'} placeholder={'Phone'}/>
+        <AppTextInput marginTop={5}/>
+        <AppText marginTop={14} text={"Change your password"} size={14} color={GLOBAL.Color.darkGrey} fontFamily={'Montserrat-SemiBold'}/>
+        <AppTextInput marginTop={15} name={'lock'} placeholder={'Password'}/>
+        <AppTextInput marginTop={5} name={'lock'} placeholder={'New password'}/>
+        <AppTextInput marginTop={5} name={'lock'} placeholder={'Confirm new password'}/>
+        <AppBTN text={'Save'} marginTop={35}/>
         </View>
       </ScrollView>
     );

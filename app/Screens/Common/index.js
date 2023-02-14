@@ -8,4 +8,5 @@ export AppCheckBox from './AppCheckBox';
 export AppIcon from './AppIcon';
 export AppTopBar from './AppTopBar';
 export AppRoundedImage from './AppRoundedImage';
+export AppFlatList from './AppFlatList';
 export * from './Globals';

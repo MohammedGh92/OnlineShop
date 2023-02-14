@@ -39,6 +39,7 @@ const pixelSizeVertical = (size) => {
 const pixelSizeHorizontal = (size) => {
   return widthPixel(size);
 };
+
 export {
   widthPixel,
   heightPixel,

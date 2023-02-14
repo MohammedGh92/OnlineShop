@@ -6,11 +6,12 @@ import Register from './Screens/Auth/Register';
 import ForgetPass from './Screens/Auth/ForgetPass';
 import NoInternet from './Screens/NoInternet/NoInternet';
 import Profile from './Screens/Profile/Profile';
+import Shipping from './Screens/Shipping/Shipping';
+import About from './Screens/About/About';
+import Brands from './Screens/Brands/Brands';
+import MyFav from './Screens/MyFav/MyFav';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import {StyleSheet, Dimensions} from 'react-native';
-const ScreenHeight = Dimensions.get('window').height;
-const ScreenWidth = Dimensions.get('window').width;
+
 import {
   DefaultTheme,
   NavigationContainer,
@@ -31,13 +32,17 @@ const navTheme = {
     return (
       <NavigationContainer theme={navTheme}>
         <Stack.Navigator screenOptions={{headerShown: false}} >
+        <Stack.Screen name="MyFav" component={MyFav}/>
+        <Stack.Screen name="Brands" component={Brands}/>
+        <Stack.Screen name="Profile" component={Profile}/>
+        <Stack.Screen name="Shipping" component={Shipping}/>
+        <Stack.Screen name="About" component={About}/>
+        <Stack.Screen name="Login" component={Login}/>
+        <Stack.Screen name="Register" component={Register}/>
         <Stack.Screen name="ForgetPass" component={ForgetPass}/>
         <Stack.Screen name="NoInternet" component={NoInternet}/>
-        <Stack.Screen name="Register" component={Register}/>
-        <Stack.Screen name="Login" component={Login}/>
         <Stack.Screen name="Welcome" component={Welcome}/>
         <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Profile" component={Profile}/>
         </Stack.Navigator>
       </NavigationContainer>
     );

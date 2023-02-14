@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {TouchableOpacity,Dimensions,View,Text,ScrollView} from 'react-native';
+import {Dimensions,View} from 'react-native';
 const ScreenHeight=Dimensions.get('window').height;
 const ScreenWidth=Dimensions.get('window').width;
-import {AppText,LogoAndName,AppImage,AppBTN,AppTextInput,AppCheckBox} from '../Common/';
+import {AppText,LogoAndName,AppBTN,AppTextInput} from '../Common/';
 const GLOBAL = require('../Common/Globals');
 import {fontPixel,heightPixel,widthPixel} from '../Common/Utils/PixelNormalization';
 

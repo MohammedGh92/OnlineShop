@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {TouchableOpacity,Dimensions,View,Text} from 'react-native';
-const ScreenHeight=Dimensions.get('window').height;
-const ScreenWidth=Dimensions.get('window').width;
+import {View,Text} from 'react-native';
 import {AppText,LogoAndName,AppImage,AppBTN} from '../Common/';
 const GLOBAL = require('../Common/Globals');
 import {fontPixel,heightPixel,widthPixel} from '../Common/Utils/PixelNormalization';

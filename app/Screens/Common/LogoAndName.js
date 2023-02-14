@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
-import {Dimensions,Image} from 'react-native';
-const {width: ScreenWidth,height: ScreenHeight,} = Dimensions.get('window');
+import React from 'react';
+import {Image} from 'react-native';
 import {heightPixel,widthPixel} from './Utils/PixelNormalization';
 
 const LogoAndName = (props) => {
     return (
-      <Image style={{marginTop:heightPixel(38),height:heightPixel(100),
+      <Image style={{marginTop:heightPixel(props.marginTop?props.marginTop:38),height:heightPixel(props.height?props.height:100),
       width:widthPixel(props.width?props.width:255)}}
        resizeMode={'contain'} source={require('../../Assets/LogoAndName.png')}/>
     );
