@@ -9,7 +9,7 @@ const AppTextInput = (props) => {
     return (
       <View style={{marginTop:heightPixel(props.marginTop?props.marginTop:0),flexDirection:'row',
         width:widthPixel(props.width?props.width:320),
-        height: heightPixel(props.height?props.height:50),borderRadius: normalize(50),
+        height: heightPixel(props.height?props.height:50),borderRadius: normalize(props.borderRadius?props.borderRadius:50),
         borderColor:GLOBAL.Color.borderColor,
         borderWidth:normalize(2.5),
         alignSelf:'center',justifyContent:'center',

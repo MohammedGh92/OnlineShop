@@ -6,8 +6,8 @@ import {fontPixel,heightPixel,widthPixel} from '../Common/Utils/PixelNormalizati
 
 class Welcome extends React.Component{
 
-  hola(){
-    console.log('hola');
+  tstFun(){
+    console.log('tstFun');
   }
 
   render() {
@@ -21,7 +21,7 @@ class Welcome extends React.Component{
             <AppText text={"\n High-quality products, on-time delivery, \n massive discounts!"} size={14} fontFamily={'Montserrat-SemiBold'}/>
           </View>
           <View style={{marginTop:heightPixel(65),height:heightPixel(55),width:widthPixel(320),justifyContent:'flex-end',alignItems:'center'}}>
-            <AppBTN text={'Next'} onPress={()=>this.hola()}/>
+            <AppBTN text={'Next'} onPress={()=>this.tstFun()}/>
           </View>
       </View>
     );

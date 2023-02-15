@@ -9,4 +9,6 @@ export AppIcon from './AppIcon';
 export AppTopBar from './AppTopBar';
 export AppRoundedImage from './AppRoundedImage';
 export AppFlatList from './AppFlatList';
+export AppSearchBar from './AppSearchBar';
+export AppProductItem from './AppProductItem';
 export * from './Globals';

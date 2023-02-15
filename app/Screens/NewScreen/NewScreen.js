@@ -10,5 +10,6 @@ class NewScreen extends React.Component{
       </View>
     );
   }
+
 }
 export default NewScreen;

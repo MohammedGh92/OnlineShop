@@ -1,12 +1,18 @@
 import React from 'react';
 import {View,Text} from 'react-native';
-import {fontPixel,heightPixel,widthPixel} from './Utils/PixelNormalization';
+import {fontPixel,heightPixel,widthPixel,normalize} from './Utils/PixelNormalization';
 const GLOBAL = require('./Globals');
 
 const AppText = (props) => {
     return (
       <View>
-        <Text style={{textDecorationLine: props.crossed?'line-through':'none',textDecorationStyle:'solid',width:props.width?widthPixel(props.width):'auto',marginTop:heightPixel(props.marginTop?props.marginTop:0),textAlign:props.textAlign?props.textAlign:'center',
+        <Text style={{textAlignVertical:'center', borderColor:props.borderColor?props.borderColor:'white',
+        borderWidth:props.borderWidth?props.borderWidth:0,
+        borderRadius:normalize(props.borderRadius?props.borderRadius:0),
+        textDecorationLine: props.crossed?'line-through':'none',textDecorationStyle:'solid',width:props.width?widthPixel(props.width):'auto',margin:normalize(props.margin?props.margin:0),
+        marginRight:heightPixel(props.marginRight?props.marginRight:0),
+        marginTop:heightPixel(props.marginTop?props.marginTop:0),textAlign:props.textAlign?props.textAlign:'center',
+        height:props.height?heightPixel(props.height):'auto',
         color:props.color?props.color:GLOBAL.Color.c3,
         fontFamily:props.fontFamily?props.fontFamily:"Montserrat-Bold",
         fontSize:fontPixel(props.size?props.size:14)}}>

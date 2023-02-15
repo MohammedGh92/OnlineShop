@@ -10,6 +10,7 @@ import Shipping from './Screens/Shipping/Shipping';
 import About from './Screens/About/About';
 import Brands from './Screens/Brands/Brands';
 import MyFav from './Screens/MyFav/MyFav';
+import MyOrders from './Screens/MyOrders/MyOrders';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import {
@@ -31,7 +32,9 @@ const navTheme = {
   export default function MyStack() {
     return (
       <NavigationContainer theme={navTheme}>
-        <Stack.Navigator screenOptions={{headerShown: false}} >
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="MyOrders" component={MyOrders}/>
         <Stack.Screen name="MyFav" component={MyFav}/>
         <Stack.Screen name="Brands" component={Brands}/>
         <Stack.Screen name="Profile" component={Profile}/>
@@ -42,7 +45,6 @@ const navTheme = {
         <Stack.Screen name="ForgetPass" component={ForgetPass}/>
         <Stack.Screen name="NoInternet" component={NoInternet}/>
         <Stack.Screen name="Welcome" component={Welcome}/>
-        <Stack.Screen name="Home" component={Home} />
         </Stack.Navigator>
       </NavigationContainer>
     );

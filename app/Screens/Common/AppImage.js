@@ -9,7 +9,7 @@ const AppImage = (props) => {
       marginTop:heightPixel(props.marginTop?props.marginTop:0),
       width:widthPixel(props.width?props.width:320),
       height: heightPixel(props.height?props.height:55)}}
-       resizeMode={'contain'} source={props.source?props.source:require('../../Assets/sampleImg.jpg')}/>
+       resizeMode={props.resizeMode?props.resizeMode:'contain'} source={props.source?props.source:require('../../Assets/sampleImg.jpg')}/>
     );
 }
 

@@ -5,22 +5,32 @@ import {heightPixel,widthPixel} from './Utils/PixelNormalization';
 
 const AppFlatList = (props) => {
     return (
-
-props.numColumns==1?
+      props.horizontal?
+      (<FlatList
+        {...props}
+        horizontal={true}
+        data={props.data}
+        renderItem={props.renderItem}
+        keyExtractor={(item) => item.id}
+      />):
+(props.numColumns==1?
       <FlatList
-        style={{height:heightPixel(700),width:widthPixel(340)}}
+        {...props}
+        contentContainerStyle={{alignItems:'center'}}
+        style={{height:heightPixel(700),width:'100%'}}
         numColumns={1}
         data={props.data}
         renderItem={props.renderItem}
       />
       :
       <FlatList
+        {...props}
         style={{height:heightPixel(700),width:widthPixel(320)}}
         numColumns={props.numColumns}
         columnWrapperStyle={{justifyContent:'space-between'}}
         data={props.data}
         renderItem={props.renderItem}
-      />
+      />)
     );
 };
 
