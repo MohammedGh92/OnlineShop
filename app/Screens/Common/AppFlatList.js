@@ -17,15 +17,15 @@ const AppFlatList = (props) => {
       <FlatList
         {...props}
         contentContainerStyle={{alignItems:'center'}}
-        style={{height:heightPixel(700),width:'100%'}}
+        style={[{height:heightPixel(700),width:'100%'},{...props.style}]}
         numColumns={1}
         data={props.data}
         renderItem={props.renderItem}
       />
       :
       <FlatList
+        style={[{height:heightPixel(700),width:widthPixel(320)},{...props.style}]}
         {...props}
-        style={{height:heightPixel(700),width:widthPixel(320)}}
         numColumns={props.numColumns}
         columnWrapperStyle={{justifyContent:'space-between'}}
         data={props.data}

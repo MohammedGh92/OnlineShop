@@ -9,7 +9,7 @@ const AppProductItem = (props) => {
   function nothing(){}
 
     return (
-        <View style={{borderColor:GLOBAL.Color.borderColor,borderWidth:1,alignItems:'center',backgroundColor:'white',margin:widthPixel(5),width:widthPixel(170),height:'100%'}}>
+        <View style={{borderColor:GLOBAL.Color.borderColor,borderWidth:1,alignItems:'center',backgroundColor:'white',margin:widthPixel(5),width:widthPixel(170),height:props.height?props.height:'100%'}}>
           <View style={{height:'47%',width:'100%'}}>
             <ImageBackground source={props.item.link}  style={{marginTop:'2%',width:'100%',height:'100%'}}>
               <View style={{borderRadius:normalize(7),margin:normalize(7),alignItems:'center',justifyContent:'center',backgroundColor:GLOBAL.Color.c1,width:'27.5%',height:'15%'}}>
@@ -26,7 +26,7 @@ const AppProductItem = (props) => {
                 </View>
                 <AppIcon color={GLOBAL.Color.c1} size={25} name={'heart-outline'}/>
               </View>
-              <AppBTN text={'Add to cart'} textColor={GLOBAL.Color.c1} height={25} width={140} textSize={11} borderColor={GLOBAL.Color.c1} borderWidth={3} color={'transparent'} borderRadius={7} />
+              <AppBTN text={'Add to cart'} textColor={GLOBAL.Color.c1} height={heightPixel(30)} width={heightPixel(150)} textSize={11} borderColor={GLOBAL.Color.c1} borderWidth={3} color={'transparent'} borderRadius={7}/>
           </View>
         </View>
     );

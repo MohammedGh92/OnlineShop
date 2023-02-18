@@ -6,7 +6,7 @@ import {AppText,AppIcon} from './';
 
 const AppTopBar = (props) => {
     return (
-      <View style={{width:'100%',height:heightPixel(66), backgroundColor:'red',flexDirection:'row',backgroundColor:GLOBAL.Color.c1}}>
+      <View style={{width:'100%',height:heightPixel(66), flexDirection:'row',backgroundColor:GLOBAL.Color.c1}}>
         <View style={{justifyContent:'center',alignItems:'center',flex:2}}>
         <TouchableOpacity><AppIcon size={38} name={props.leftIcon?props.leftIcon:'arrow-left'}/></TouchableOpacity>
         </View>

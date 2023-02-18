@@ -10,5 +10,6 @@ module.exports = {
     borderColor:'#EAEAEA',
     background:'#FAFAFA',
     grey:'#DDDDDD',
+    darkGold:'#EDB700'
   },
 };

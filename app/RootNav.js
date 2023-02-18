@@ -11,6 +11,9 @@ import About from './Screens/About/About';
 import Brands from './Screens/Brands/Brands';
 import MyFav from './Screens/MyFav/MyFav';
 import MyOrders from './Screens/MyOrders/MyOrders';
+import Products from './Screens/Products/Products';
+import SearchProducts from './Screens/SearchProducts/SearchProducts';
+import ProductDetails from './Screens/ProductDetails/ProductDetails';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import {
@@ -33,6 +36,9 @@ const navTheme = {
     return (
       <NavigationContainer theme={navTheme}>
         <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="ProductDetails" component={ProductDetails} />
+        <Stack.Screen name="SearchProducts" component={SearchProducts} />
+        <Stack.Screen name="Products" component={Products} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="MyOrders" component={MyOrders}/>
         <Stack.Screen name="MyFav" component={MyFav}/>

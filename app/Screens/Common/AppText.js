@@ -5,7 +5,7 @@ const GLOBAL = require('./Globals');
 
 const AppText = (props) => {
     return (
-      <View>
+      <View style={[{justifyContent:'center',backgroundColor:props.backgroundColor?props.backgroundColor:'transparent'},{...props.style}]}>
         <Text style={{textAlignVertical:'center', borderColor:props.borderColor?props.borderColor:'white',
         borderWidth:props.borderWidth?props.borderWidth:0,
         borderRadius:normalize(props.borderRadius?props.borderRadius:0),

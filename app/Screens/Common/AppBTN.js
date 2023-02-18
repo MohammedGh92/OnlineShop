@@ -6,8 +6,8 @@ import {normalize,heightPixel,widthPixel} from './Utils/PixelNormalization';
   const AppBTN = (props) => {
     return (
       <TouchableOpacity activeOpacity={0.7} style={{
-        marginTop:heightPixel(props.marginTop?props.marginTop:0),height:heightPixel(props.height?props.height:52)
-        ,width:widthPixel(props.width?props.width:300),
+        marginTop:heightPixel(props.marginTop?props.marginTop:0),height:props.height?props.height:heightPixel(52)
+        ,width:props.width?props.width:widthPixel(300),
         borderColor: props.borderColor?props.borderColor:'transparent'
         ,borderWidth: normalize(props.borderWidth?props.borderWidth:0)
         ,borderRadius: normalize(props.borderRadius?props.borderRadius:50),

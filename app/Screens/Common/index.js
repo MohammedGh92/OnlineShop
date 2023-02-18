@@ -11,4 +11,8 @@ export AppRoundedImage from './AppRoundedImage';
 export AppFlatList from './AppFlatList';
 export AppSearchBar from './AppSearchBar';
 export AppProductItem from './AppProductItem';
+export AppBottomBar from './AppBottomBar';
+export AppPicker from './AppPicker';
+export AppQuantity from './AppQuantity';
+export AppHorListOfItems from './AppHorListOfItems';
 export * from './Globals';

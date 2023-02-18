@@ -15,19 +15,17 @@ function ImgItem(props){
 
     return (
       <View style={{height:heightPixel(190)}}>
-        {
-          // <Swiper autoplay>
-          //   <View style={styles.slide1}>
-          //     <ImgItem source={require('./SamplePhotos/BigPromo1-1.png')}/>
-          //   </View>
-          //     <View style={styles.slide1}>
-          //       <ImgItem source={require('./SamplePhotos/BigPromo1-2.png')}/>
-          //     </View>
-          //     <View style={styles.slide1}>
-          //       <ImgItem source={require('./SamplePhotos/BigPromo1-3.png')}/>
-          //     </View>
-          // </Swiper>
-        }
+          <Swiper autoplay>
+            <View style={styles.slide1}>
+              <ImgItem source={require('./SamplePhotos/BigPromo1-1.png')}/>
+            </View>
+              <View style={styles.slide1}>
+                <ImgItem source={require('./SamplePhotos/BigPromo1-2.png')}/>
+              </View>
+              <View style={styles.slide1}>
+                <ImgItem source={require('./SamplePhotos/BigPromo1-3.png')}/>
+              </View>
+          </Swiper>
       </View>
     );
 }
