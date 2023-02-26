@@ -19,8 +19,13 @@ import {AppIcon,AppText} from './';
         setQuantity(quantity-1);
      }
 
+     const{
+       width,
+       height
+     }=props;
+
     return (
-        <View style={{backgroundColor:'#F7F7F7',borderColor:GLOBAL.Color.borderColor,borderWidth:1,flexDirection:'row',width:'35%',height:'90%'}}>
+        <View style={{backgroundColor:'#F7F7F7',borderColor:GLOBAL.Color.borderColor,borderWidth:1,flexDirection:'row',width:width?width:'35%',height:height?height:'90%'}}>
           <TouchableOpacity style={{justifyContent:'center',alignItems:'center',width:'25%'}} onPress={decAmount}><AppIcon size={24} color={GLOBAL.Color.c1} name={'minus'} /></TouchableOpacity>
           <AppText size={17} text={quantity} style={{justifyContent:'center',width:'50%'}}/>
           <TouchableOpacity style={{justifyContent:'center',alignItems:'center',width:'25%'}} onPress={incAmount}><AppIcon size={27} color={GLOBAL.Color.c1} name={'plus'} /></TouchableOpacity>

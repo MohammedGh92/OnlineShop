@@ -6,7 +6,7 @@ const {AppImage,AppText,AppFlatList,AppProductItem} = require('./');
 
   const AppHorListOfItems = (props) => {
     return (
-      <View style={[{alignSelf:'center',marginTop:heightPixel(15),height:heightPixel(320),width:widthPixel(350)},{...props.style}]}>
+      <View style={[{alignSelf:'center',marginTop:heightPixel(15),height:heightPixel(350),width:widthPixel(350)},{...props.style}]}>
         <View style={{justifyContent:'space-between',alignItems:'center',flexDirection:'row',width:'98%',height:'10%'}}>
           <AppText size={16} color={props.titleColor} text={props.title?props.title:'Most ordered'}/>
           {props.hideShowAll?<View/>:<TouchableOpacity><AppText size={13} color={GLOBAL.Color.c1} text={'Show All'}/></TouchableOpacity>}

@@ -23,8 +23,8 @@ const{
 }
 
     return (
-      <View style={{borderTopWidth:1,borderTopColor:'#A3A3A3',
-      width:'100%',height:heightPixel(66), alignItems:'center',backgroundColor:'#ECECEC',flexDirection:'row'}}>
+      <View style={{position:'absolute',bottom:0,borderTopWidth:1,borderTopColor:'#A3A3A3',
+      width:widthPixel(375),height:heightPixel(66), alignItems:'center',backgroundColor:'#ECECEC',flexDirection:'row'}}>
         <Item choosed={props.choosed==0} name={'Home'} iconName={'home'}/>
         <Item choosed={props.choosed==1} name={'Sections'} iconName={'format-list-bulleted'}/>
         <Item choosed={props.choosed==2} name={'Brands'} iconName={'podium'}/>

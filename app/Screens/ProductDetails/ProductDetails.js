@@ -33,7 +33,7 @@ class ProductDetails extends React.Component{
           </View>
           <AppText color={GLOBAL.Color.c1} text={'Details'} size={15} marginTop={30} style={{width:'92%',alignSelf:'center',alignItems:'flex-start'}}/>
           <AppText textAlign={'left'} text={Data.ProductDetails.desc} marginTop={15} size={13} style={{width:'92%',alignSelf:'center',alignItems:'flex-start'}}/>
-          <AppHorListOfItems title={'Similar Products'} hideShowAll titleColor={GLOBAL.Color.c1} style={{marginBottom:heightPixel(50)}} data={Data.Home.MostOrdered}/>
+          <AppHorListOfItems title={'Similar Products'} hideShowAll={true} titleColor={GLOBAL.Color.c1} style={{marginBottom:heightPixel(50)}} data={Data.Home.MostOrdered}/>
         </ScrollView>
         </View>
       </View>

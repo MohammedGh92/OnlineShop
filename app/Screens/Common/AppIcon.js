@@ -7,7 +7,7 @@ import {normalize} from './Utils/PixelNormalization';
   const AppIcon = (props) => {
     return (
         <View style={[{alignItems:'center',justifyContent:'center'},{...props.style}]}>
-          <Icon size={normalize(props.size?props.size:19)} color={props.color?props.color:GLOBAL.Color.white} name={props.name?props.name:"arrow-right"} />
+          <Icon style={{}} size={normalize(props.size?props.size:19)} color={props.color?props.color:GLOBAL.Color.white} name={props.name?props.name:"arrow-right"} />
         </View>
     );
 }

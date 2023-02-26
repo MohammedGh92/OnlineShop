@@ -8,6 +8,7 @@ import Data from '../MockData/data';
 class Home extends React.Component{
 
   render() {
+
     return (
       <View style={{height:'100%',width:'100%'}}>
         <View style={{height:'10%',width:'100%'}}><AppSearchBar/></View>

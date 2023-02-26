@@ -11,7 +11,7 @@ const AppText = (props) => {
         borderRadius:normalize(props.borderRadius?props.borderRadius:0),
         textDecorationLine: props.crossed?'line-through':'none',textDecorationStyle:'solid',width:props.width?widthPixel(props.width):'auto',margin:normalize(props.margin?props.margin:0),
         marginRight:heightPixel(props.marginRight?props.marginRight:0),
-        marginTop:heightPixel(props.marginTop?props.marginTop:0),textAlign:props.textAlign?props.textAlign:'center',
+        marginTop:heightPixel(props.marginTop?props.marginTop:0),marginBottom:heightPixel(props.marginBottom?props.marginBottom:0),textAlign:props.textAlign?props.textAlign:'center',
         height:props.height?heightPixel(props.height):'auto',
         color:props.color?props.color:GLOBAL.Color.c3,
         fontFamily:props.fontFamily?props.fontFamily:"Montserrat-Bold",

@@ -12,7 +12,7 @@ class Brands extends React.Component{
     return (
       <View style={{alignItems:'center'}}>
         <AppTopBar title={'Brands'}/>
-        <AppFlatList data={Data} renderItem={({item})=> <BrandItem/>}/>
+        <AppFlatList numColumns={2} data={Data} renderItem={({item})=> <BrandItem/>}/>
       </View>
     );
   }

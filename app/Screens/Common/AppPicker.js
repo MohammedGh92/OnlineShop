@@ -26,7 +26,7 @@ import {Picker} from '@react-native-picker/picker';
 
     return (
         <Picker
-          style={{marginTop:heightPixel(15),backgroundColor:GLOBAL.Color.borderColor,width:'95%',height:heightPixel(50)}}
+          style={{marginTop:heightPixel(0),width:'100%'}}
           selectedValue={(selectedLanguage)}
           onValueChange={(itemValue, itemIndex) =>
             setSelectedLanguage(itemValue)
