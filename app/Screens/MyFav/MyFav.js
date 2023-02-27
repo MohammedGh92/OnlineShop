@@ -11,7 +11,7 @@ class MyFav extends React.Component{
   render() {
     return (
       <View style={{alignItems:'center'}}>
-        <AppTopBar title={'Brands'}/>
+        <AppTopBar title={'Favourites'}/>
         <AppFlatList numColumns={1} data={Data} renderItem={({item})=> <FavItem item={item}/>}/>
       </View>
     );

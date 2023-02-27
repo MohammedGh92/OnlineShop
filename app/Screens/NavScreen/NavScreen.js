@@ -24,8 +24,8 @@ class NavScreen extends React.Component{
         <AppTopBar title={'My Profile'} hideLeft/>
         <View style={{width:'90%',height:'90%'}}>
           <View style={{backgroundColor:'white',flexDirection:'row',marginTop:normalize(15),height:'12%',width:'100%'}}>
-            <AppImage source={require('../../Assets/Logo.png')} width={80}/>
-            <View style={{justifyContent:'center'}}>
+            <AppImage source={require('../../Assets/Logo.png')} width={40}/>
+            <View style={{margin:normalize(8),justifyContent:'center'}}>
               <AppText text={'\tWelcome, Mohammed'} textAlign={'left'} color={GLOBAL.Color.c1} size={15}/>
               <AppText text={'\tmohammedghabyen@gmail.com'} color={GLOBAL.Color.grey} size={13} textAlign={'left'}/>
             </View>

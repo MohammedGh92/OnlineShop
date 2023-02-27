@@ -10,7 +10,7 @@ const {AppText} = require('../../Common/');
       image
     } = props.item;
     return (
-      <View style={{margin:heightPixel(7),height:heightPixel(130),width:'43%'}}>
+      <View style={{margin:heightPixel(7),height:heightPixel(145),width:'43%'}}>
             <ImageBackground source={image} imageStyle={{borderRadius: normalize(30)}} resizeMode={'cover'}
               style={{width:'100%',height:'100%'}} source={props.item.image}>
               <View style={{alignItems:'center',justifyContent:'center',borderRadius: normalize(30),backgroundColor:'rgba(0,0,0,0.45)',flex:1}}>

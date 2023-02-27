@@ -10,9 +10,9 @@ class HelpCenter extends React.Component{
 
     const listItem = (iconName,title,height) => {
     return (
-      <AppListItem style={{height:heightPixel(height?height:36)}} marginTop={3} icon={iconName} iconSize={24} title={title}>
-        <View style={{justifyContent:'center',alignItems:'center',flex:1}}>
-          <AppIcon name={'chevron-right'} color={'#707070'} size={25}/>
+      <AppListItem style={{height:heightPixel(height?height:36)}} marginTop={3} icon={iconName} textSize={12} iconSize={24} title={title}>
+        <View style={{justifyContent:'center',alignItems:'flex-end',flex:1}}>
+          <AppIcon style={{width:'10%'}} name={'chevron-right'} color={'#707070'} size={25}/>
         </View>
       </AppListItem>
     )

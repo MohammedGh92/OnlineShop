@@ -7,6 +7,7 @@ const AppFlatList = (props) => {
     return (
       props.horizontal?
       (<FlatList
+        nestedScrollEnabled
         {...props}
         horizontal={true}
         data={props.data}
@@ -15,6 +16,7 @@ const AppFlatList = (props) => {
       />):
 (props.numColumns==1?
       <FlatList
+      nestedScrollEnabled
         {...props}
         contentContainerStyle={{alignItems:'center'}}
         style={[{height:heightPixel(700),width:'100%'},{...props.style}]}
@@ -24,6 +26,7 @@ const AppFlatList = (props) => {
       />
       :
       <FlatList
+      nestedScrollEnabled
         style={[{height:heightPixel(700),width:widthPixel(320)},{...props.style}]}
         {...props}
         numColumns={props.numColumns}

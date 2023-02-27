@@ -13,7 +13,8 @@ const AppListItem = (props) => {
     iconSize,
     iconColor,
     textColor,
-    borderColor
+    borderColor,
+    textSize
   } = props;
 
     return (
@@ -25,8 +26,8 @@ const AppListItem = (props) => {
         justifyContent:'center',alignSelf:'center',
         alignItems: 'center',backgroundColor: 'white'},{...props.style}]}>
         <View style={{height:'100%',width:'15%',justifyContent:'center'}}><AppIcon name={icon} color={iconColor?iconColor:GLOBAL.Color.darkGrey} size={iconSize?iconSize:30}/></View>
-        <View style={{height:'100%',width:'75%',justifyContent:'center'}}><AppText size={11.5} text={title} color={textColor?textColor:GLOBAL.Color.c3} textAlign={'left'}/></View>
-        <View style={{height:'100%',width:'10%'}}>{props.children}</View>
+        <View style={{height:'100%',width:'45%',justifyContent:'center'}}><AppText size={textSize?textSize:14.5} text={title} color={textColor?textColor:GLOBAL.Color.c3} textAlign={'left'}/></View>
+        <View style={{height:'100%',width:'40%'}}>{props.children}</View>
       </View>
     );
   }

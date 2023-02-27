@@ -18,7 +18,7 @@ const {AppImage,AppText,AppIcon} = require('../../Common/');
       <View style={{backgroundColor:GLOBAL.Color.white,
         borderColor:GLOBAL.Color.borderColor,flexDirection:'row',justifyContent:'center',alignItems:'center',
         borderWidth:normalize(2.5),height:heightPixel(100),marginTop:heightPixel(10),width:'90%'}}>
-        <View style={{justifyContent:'center',margin:widthPixel(10),alignItems:'center',flex:3}}><AppImage/></View>
+        <View style={{justifyContent:'center',margin:widthPixel(10),alignItems:'center',flex:3}}><AppImage height={82}/></View>
         <View style={{flex:6,height:'80%',justifyContent:'space-between'}}>
           <AppText text={name} size={12} color={GLOBAL.Color.darkGrey} textAlign='left'/>
           <AppText crossed text={'$'+oldPrice} size={11} color={GLOBAL.Color.grey} textAlign='left'/>

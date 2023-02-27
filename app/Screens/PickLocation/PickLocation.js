@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
-import {View,ActivityIndicator} from 'react-native';
-import MapView from 'react-native-maps';
+import {Text,View ,TouchableOpacity,StyleSheet,Alert,I18nManager,Dimensions,
+  StatusBar,Image,ActivityIndicator,PermissionsAndroid,BackHandler,DeviceEventEmitter,Platform} from 'react-native';
+import MapView,{Marker} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import LocationServicesDialogBox from "react-native-android-location-services-dialog-box";
 import Permissions from 'react-native-permissions';
+import {AppIcon,AppBTN,AppTopBar} from '../Common/';
+const GLOBAL = require('../Common/Globals');
 
 class PickLocation extends React.Component{
 
@@ -36,7 +39,6 @@ class PickLocation extends React.Component{
     preventBackClick: true, // true => To prevent the location services popup from closing when it is clicked back button
     providerListener: false // true ==> Trigger locationProviderStatusChange listener when the location state changes
   }).then((success) => {
-    console.log('success:'+JSON.stringify(success));
     this._requestPermission();
   }).catch((error) => {
     this.props.navigation.goBack();
@@ -64,37 +66,34 @@ class PickLocation extends React.Component{
     });
   }
 
-   OnMapClick(NewCoord){
-    this.setState({MapSetted:true,longitude:NewCoord.longitude,latitude:NewCoord.latitude,firstLat:this.firstLat,firstLon:this.firstLon});
+   onRegionChange(NewCoord){
+     // console.log(NewCoord);
+    // this.setState({MapSetted:true,longitude:NewCoord.longitude,latitude:NewCoord.latitude,firstLat:this.firstLat,firstLon:this.firstLon});
   }
 
 
   render() {
     if(this.state.latitude===null)
-      return <ActivityIndicator />
+      return <ActivityIndicator style={{width:'100%',height:'100%'}} size={40}/>
     return (
       <View style={{width:'100%',height:'100%',alignItems:'center'}}>
-      <MapView
-      style={{width:'100%',height:'100%'}}
-      showsUserLocation
-      onMapReady={() => this.setState({ marginBottom: 1 })}
-      showsMyLocationButton
-      showsCompass
-      initialRegion={{
-        latitude: this.state.latitude,
-        longitude: this.state.longitude,
-        latitudeDelta: 0.015,
-        longitudeDelta: 0.015,
-      }}
->
-<Marker
-  draggable
-  coordinate={{
-    latitude: this.state.latitude,
-    longitude: this.state.longitude,
-  }}
-/>
-</MapView>
+          <AppTopBar title={'Pick Delivery Location'}/>
+          <MapView
+          style={{width:'100%',height:'90%'}}
+          showsUserLocation
+          onMapReady={() => this.setState({ marginBottom: 1 })}
+          showsMyLocationButton
+          showsCompass
+          onRegionChange={this.onRegionChange}
+          initialRegion={{
+            latitude: this.state.latitude,
+            longitude: this.state.longitude,
+            latitudeDelta: 0.015,
+            longitudeDelta: 0.015,
+          }}
+          />
+            <AppIcon style={{opacity:0.85,position:'absolute',top:'40%'}} name={'map-marker'} color={GLOBAL.Color.c1} size={60}/>
+            <AppBTN text={'Confirm Location'} style={{position:'absolute',bottom:'5%'}}/>
       </View>
     );
   }

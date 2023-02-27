@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View,StyleSheet,Text,ScrollView} from 'react-native';
 import {AppTopBar,AppSearchBar,AppFlatList,AppImage,AppBottomBar,AppHorListOfItems} from '../Common/';
 import {BigPromo,TwoPromos,WideBanner} from './Components/';
-import {fontPixel,heightPixel,widthPixel} from '../Common/Utils/PixelNormalization';
+import {fontPixel,normalize,heightPixel,widthPixel} from '../Common/Utils/PixelNormalization';
 import Data from '../MockData/data';
 
 class Home extends React.Component{
@@ -12,7 +12,7 @@ class Home extends React.Component{
     return (
       <View style={{height:'100%',width:'100%'}}>
         <View style={{height:'10%',width:'100%'}}><AppSearchBar/></View>
-        <View style={{height:'82%',width:'100%'}}>
+        <View style={{marginTop:normalize(3),height:'82%',width:'100%'}}>
         <ScrollView>
           <View style={{alignItems:'center'}}>
               <BigPromo/>
@@ -32,7 +32,7 @@ class Home extends React.Component{
           </View>
         </ScrollView>
         </View>
-        <View style={{height:'8%',width:'100%'}}><AppBottomBar choosed={0}/></View>
+        <AppBottomBar choosed={0}/>
       </View>
     );
   }
