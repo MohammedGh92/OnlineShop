@@ -3,8 +3,13 @@ import {View,Text} from 'react-native';
 import {AppText,LogoAndName,AppImage,AppBTN} from '../Common/';
 const GLOBAL = require('../Common/Globals');
 import {fontPixel,heightPixel,widthPixel} from '../Common/Utils/PixelNormalization';
+import SplashScreen from 'react-native-splash-screen';
 
 class Welcome extends React.Component{
+
+  componentDidMount(){
+    SplashScreen.hide();
+  }
 
   onClick(){
     console.log('onClick');
