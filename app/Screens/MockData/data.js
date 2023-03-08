@@ -110,7 +110,7 @@ Sections:[
         ]
       },{
         id:4,
-        name:'Sport Devices',
+        name:'Fitness',
         image:require('./SamplePhotos/Section4.jpg'),
         subSections:[
           {

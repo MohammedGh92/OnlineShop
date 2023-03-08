@@ -15,7 +15,7 @@ const AppTextInput = (props) => {
         alignSelf:'center',justifyContent:'center',
         alignItems: 'center',backgroundColor: GLOBAL.Color.white}}>
         <View style={{flex:props.iconFlex?props.iconFlex:1}}><AppCircleIcon {...props}/></View>
-        <View style={{flex:6}}><TextInput placeholder={props.placeholder?props.placeholder:"Email"}/></View>
+        <View style={{flex:6}}><TextInput placeholder={props.placeholder?props.placeholder:"Email"} {...props.textStyle}/></View>
       </View>
     );
   }

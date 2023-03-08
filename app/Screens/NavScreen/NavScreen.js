@@ -11,7 +11,7 @@ class NavScreen extends React.Component{
     const listItem = (iconName,title) => {
     return (
       <AppListItem borderColor={'transparent'} style={{height:heightPixel(50)}} marginTop={6}
-      icon={iconName} iconSize={24} title={title}>
+      icon={iconName} alignItems={'flex-end'} iconSize={24} title={title}>
         <View style={{justifyContent:'center',alignItems:'center',flex:1}}>
           <AppIcon name={'chevron-right'} color={'#707070'} size={25}/>
         </View>

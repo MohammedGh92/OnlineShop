@@ -7,11 +7,11 @@ import {Picker} from '@react-native-picker/picker';
 
   const AppPicker = (props) => {
 
-    const [selectedLanguage, setSelectedLanguage] = useState("Java");
+    const [selected, setSelected] = useState(props.items[0]);
 
     function Item(name,id){
       return(
-        <Picker.Item label={name} value={id} />
+        <Picker.Item key={id} label={name} value={id} />
       );
     }
 
@@ -27,9 +27,9 @@ import {Picker} from '@react-native-picker/picker';
     return (
         <Picker
           style={{marginTop:heightPixel(0),width:'100%'}}
-          selectedValue={(selectedLanguage)}
+          selectedValue={(selected)}
           onValueChange={(itemValue, itemIndex) =>
-            setSelectedLanguage(itemValue)
+            setSelected(itemValue)
         }>
         {Items()}
         </Picker>

@@ -8,6 +8,10 @@ import {fontPixel,heightPixel,widthPixel} from '../Common/Utils/PixelNormalizati
 
 class ForgetPass extends React.Component{
 
+onSendClick(){
+  this.props.navigation.goBack();
+}
+
   render() {
     return (
         <View style={{alignItems:'center',height:ScreenHeight*0.95,width:ScreenWidth}}>
@@ -16,7 +20,7 @@ class ForgetPass extends React.Component{
             <AppText marginTop={2} text={"Enter your email to get \n an activation message"} size={14}
              color={GLOBAL.Color.darkGrey} fontFamily={'Montserrat-SemiBold'}/>
             <AppTextInput marginTop={40} name={'email'} placeholder={'Email'}/>
-            <AppBTN marginTop={50} text={'Send'}/>
+            <AppBTN onPress={()=>this.onSendClick()} marginTop={50} text={'Send'}/>
         </View>
     );
   }

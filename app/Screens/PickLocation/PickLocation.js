@@ -17,17 +17,11 @@ class PickLocation extends React.Component{
       firstLon:null,
        latitude: null,
        longitude: null,
-       error: null,
-       locationPermission:'',
-       MapSetted:false,
        marginBottom:0,
-       BTNShaowed:false,
-       Loading:true
     }
   }
 
   componentDidMount() {
-
     LocationServicesDialogBox.checkLocationServicesIsEnabled({
     message: "<h2 style='color: #0af13e'>Use Location ?</h2>This app wants to change your device settings:<br/><br/>Use GPS, Wi-Fi, and cell network for location<br/><br/><a href='#'>Learn more</a>",
     ok: "YES",

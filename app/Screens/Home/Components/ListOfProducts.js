@@ -11,7 +11,7 @@ const {AppImage,AppText,AppFlatList,AppProductItem} = require('../../Common/');
           <AppText size={16} text={props.title?props.title:'Most ordered'}/>
           <TouchableOpacity><AppText size={13} color={GLOBAL.Color.c1} text={'Show All'}/></TouchableOpacity>
         </View>
-        <AppFlatList horizontal showsHorizontalScrollIndicator={false} data={props.data} renderItem={({item})=> <AppProductItem item={item}/>}/>
+        <AppFlatList horizontal data={props.data} renderItem={({item})=> <AppProductItem item={item}/>}/>
       </View>
     );
 }

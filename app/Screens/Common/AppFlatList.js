@@ -13,6 +13,7 @@ const AppFlatList = (props) => {
         data={props.data}
         renderItem={props.renderItem}
         keyExtractor={(item) => item.id}
+        showsHorizontalScrollIndicator={false}
       />):
 (props.numColumns==1?
       <FlatList
@@ -23,6 +24,8 @@ const AppFlatList = (props) => {
         numColumns={1}
         data={props.data}
         renderItem={props.renderItem}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
       />
       :
       <FlatList
@@ -33,6 +36,8 @@ const AppFlatList = (props) => {
         columnWrapperStyle={{justifyContent:'space-between'}}
         data={props.data}
         renderItem={props.renderItem}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
       />)
     );
 };

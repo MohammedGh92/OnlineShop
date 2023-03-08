@@ -3,6 +3,7 @@ import {View,TouchableOpacity} from 'react-native';
 const GLOBAL = require('./Globals');
 import {normalize,widthPixel,heightPixel} from './Utils/PixelNormalization';
 import {AppText,AppIcon} from './';
+import * as RootNavigation from '../../RootNav.js';
 
 const AppBottomBar = (props) => {
 
@@ -14,11 +15,17 @@ const{
   choosed
 } = props;
 
+const onClick = () => {
+    RootNavigation.navigate(name);
+}
+
   return(
-    <View style={{width:'20%',height:'50%',alignItems:'center',justifyContent:'center'}}>
-      <AppIcon name={iconName} size={30} color={choosed?GLOBAL.Color.c1:GLOBAL.Color.darkGrey}/>
-      <AppText text={name} color={choosed?GLOBAL.Color.c1:GLOBAL.Color.darkGrey} size={10}/>
-    </View>
+      <View style={{width:'20%',height:'50%',alignItems:'center',justifyContent:'center'}}>
+        <TouchableOpacity onPress={onClick}>
+          <AppIcon name={iconName} size={30} color={choosed?GLOBAL.Color.c1:GLOBAL.Color.darkGrey}/>
+          <AppText text={name} color={choosed?GLOBAL.Color.c1:GLOBAL.Color.darkGrey} size={10}/>
+        </TouchableOpacity>
+      </View>
   );
 }
 
@@ -29,7 +36,7 @@ const{
         <Item choosed={props.choosed==1} name={'Sections'} iconName={'format-list-bulleted'}/>
         <Item choosed={props.choosed==2} name={'Brands'} iconName={'podium'}/>
         <Item choosed={props.choosed==3} name={'Cart'} iconName={'cart'}/>
-        <Item choosed={props.choosed==4} name={'My Profile'} iconName={'account'}/>
+        <Item choosed={props.choosed==4} name={'Profile'} iconName={'account'}/>
       </View>
     );
 };

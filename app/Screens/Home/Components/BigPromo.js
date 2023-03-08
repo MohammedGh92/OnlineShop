@@ -14,7 +14,7 @@ function ImgItem(props){
 }
 
     return (
-      <View style={{height:heightPixel(230)}}>
+      <View style={{height:heightPixel(210)}}>
           <Swiper autoplay>
             <View style={styles.slide1}>
               <ImgItem source={require('./SamplePhotos/BigPromo1-1.png')}/>

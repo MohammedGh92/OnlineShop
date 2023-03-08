@@ -8,6 +8,29 @@ import {fontPixel,heightPixel,widthPixel} from '../Common/Utils/PixelNormalizati
 
 class Login extends React.Component{
 
+  goHome(){
+    this.props.navigation.reset({
+                index: 0,
+                routes: [{name: 'Home'}],
+              });
+  }
+
+  onForgotPasswordClick(){
+    this.props.navigation.navigate('ForgetPass');
+  }
+
+  onSignInClick(){
+    this.goHome();
+  }
+
+  onSkipClick(){
+    this.goHome();
+  }
+
+  onSignUpClick(){
+    this.props.navigation.navigate('Register');
+  }
+
   render() {
     return (
       <ScrollView>
@@ -17,14 +40,14 @@ class Login extends React.Component{
             <AppText marginTop={3} text={"Login"} size={14} color={GLOBAL.Color.darkGrey} fontFamily={'Montserrat-SemiBold'}/>
             <AppTextInput marginTop={40}/>
             <AppTextInput marginTop={10} name={'lock'} placeholder={'Password'}/>
-            <TouchableOpacity style={{marginTop:heightPixel(10)}}><AppText text={"Forget Password?"} color={GLOBAL.Color.darkGrey}
+            <TouchableOpacity onPress={()=>this.onForgotPasswordClick()} style={{marginTop:heightPixel(10)}}><AppText text={"Forget Password?"} color={GLOBAL.Color.darkGrey}
             size={14} fontFamily={'Montserrat-SemiBold'}/>
             </TouchableOpacity>
-            <AppBTN text={'Login'} marginTop={45}/>
-            <AppBTN text={'Skip'} color={GLOBAL.Color.c3} marginTop={15}/>
+            <AppBTN onPress={()=>this.onSignInClick()} text={'Login'} marginTop={45}/>
+            <AppBTN onPress={()=>this.onSkipClick()} text={'Skip'} color={GLOBAL.Color.c3} marginTop={15}/>
             <View style={{marginTop:heightPixel(80),flexDirection:'row'}}>
               <AppText text={"Don’t have account?"} color={GLOBAL.Color.darkGrey} size={16} fontFamily={'Montserrat-Bold'}/>
-              <TouchableOpacity><AppText text={" Sign up"} color={GLOBAL.Color.c1} size={16} fontFamily={'Montserrat-Bold'}/></TouchableOpacity>
+              <TouchableOpacity onPress={()=>this.onSignUpClick()}><AppText text={" Sign up"} color={GLOBAL.Color.c1} size={16} fontFamily={'Montserrat-Bold'}/></TouchableOpacity>
             </View>
         </View>
       </ScrollView>

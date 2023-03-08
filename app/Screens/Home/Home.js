@@ -8,14 +8,13 @@ import Data from '../MockData/data';
 class Home extends React.Component{
 
   render() {
-
     return (
       <View style={{height:'100%',width:'100%'}}>
         <View style={{height:'10%',width:'100%'}}><AppSearchBar/></View>
         <View style={{marginTop:normalize(3),height:'82%',width:'100%'}}>
         <ScrollView>
           <View style={{alignItems:'center'}}>
-              <BigPromo/>
+              {/*<BigPromo/> //T, */}
               <TwoPromos/>
               <WideBanner source={require('./Components/SamplePhotos/WideBanner1-1.png')}/>
               <AppHorListOfItems data={Data.Home.MostOrdered}/>

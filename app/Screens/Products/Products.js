@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {View,FlatList} from 'react-native';
 import {fontPixel,heightPixel,widthPixel} from '../Common/Utils/PixelNormalization';
 import {AppTopBar,AppFlatList,AppProductItem} from '../Common/';
-const GLOBAL = require('../Common/Globals');
 import Data from '../MockData/data';
 
 class Products extends React.Component{

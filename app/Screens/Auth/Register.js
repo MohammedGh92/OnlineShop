@@ -8,6 +8,17 @@ import {fontPixel,heightPixel,widthPixel} from '../Common/Utils/PixelNormalizati
 
 class Register extends React.Component{
 
+onSignInClick(){
+  this.props.navigation.navigate('Login');
+}
+
+onSignUpClick(){
+  this.props.navigation.reset({
+              index: 0,
+              routes: [{name: 'Home'}],
+            });
+}
+
   render() {
     return (
       <ScrollView>
@@ -25,10 +36,10 @@ class Register extends React.Component{
               size={12} fontFamily={'Montserrat-SemiBold'}/>
               </TouchableOpacity>
             </View>
-            <AppBTN marginTop={40} text={'Register'}/>
+            <AppBTN marginTop={40} onPress={()=>this.onSignUpClick()} text={'Register'}/>
             <View style={{marginTop:heightPixel(55),flexDirection:'row'}}>
               <AppText text={"Have account?"} color={GLOBAL.Color.darkGrey} size={16} fontFamily={'Montserrat-Bold'}/>
-              <TouchableOpacity><AppText text={" Sign in"} color={GLOBAL.Color.c1} size={16} fontFamily={'Montserrat-Bold'}/></TouchableOpacity>
+              <TouchableOpacity onPress={()=>this.onSignInClick()}><AppText text={" Sign in"} color={GLOBAL.Color.c1} size={16} fontFamily={'Montserrat-Bold'}/></TouchableOpacity>
             </View>
         </View>
       </ScrollView>
