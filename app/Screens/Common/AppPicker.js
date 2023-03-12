@@ -26,7 +26,7 @@ import {Picker} from '@react-native-picker/picker';
 
     return (
         <Picker
-          style={{marginTop:heightPixel(0),width:'100%'}}
+          style={[{marginTop:heightPixel(0),width:'100%'},{...props.style}]}
           selectedValue={(selected)}
           onValueChange={(itemValue, itemIndex) =>
             setSelected(itemValue)

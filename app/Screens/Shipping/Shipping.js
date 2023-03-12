@@ -5,6 +5,10 @@ import {AppTopBar,AppTextInput,AppBTN} from '../Common/';
 
 class Shipping extends React.Component{
 
+  onContinueClicked (){
+    this.props.navigation.navigate('PickLocation');
+  }
+
   render() {
     return (
       <ScrollView>
@@ -24,7 +28,7 @@ class Shipping extends React.Component{
             <AppTextInput iconFlex={3} width={155} name={'format-list-numbered'} placeholder={'Floor number'}/>
             <AppTextInput iconFlex={3} width={155} name={'home'} placeholder={'Apartment no.'}/>
           </View>
-          <AppBTN text={'Continue'} marginTop={32}/>
+          <AppBTN text={'Continue'} marginTop={32} onPress={()=>this.onContinueClicked()}/>
         </View>
       </ScrollView>
     );

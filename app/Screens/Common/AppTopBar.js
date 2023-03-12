@@ -12,7 +12,6 @@ const{
 }= props;
 
 const onBackClicked = () => {
-  console.log(RootNavigation);
     RootNavigation.navigationRef.goBack();
 }
 

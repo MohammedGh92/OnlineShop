@@ -8,18 +8,24 @@ import Swiper from 'react-native-swiper';
 
   const Photos = (props) => {
 
-function ImgItem(props){
+function ImgItem(item,id){
   return(
-    <AppImage source={props.source} resizeMode={'cover'} width={350} height={220}/>
+    <View key={id}><AppImage source={item} resizeMode={'cover'} width={350} height={220}/></View>
   );
 }
 
+function images(){
+  return props.images.map((item,id) => {
+        return (
+          ImgItem(item,id)
+        )
+      });
+}
+
     return (
-      <View style={{height:heightPixel(230),width:'110%'}}>
+      <View style={{marginTop:'3%',height:heightPixel(230),width:'110%'}}>
         <Swiper autoplay>
-            <View><ImgItem source={require('../../MockData/SamplePhotos/Product1-1.png')}/></View>
-            <View><ImgItem source={require('../../MockData/SamplePhotos/Product1-2.png')}/></View>
-            <View><ImgItem source={require('../../MockData/SamplePhotos/Product1-3.png')}/></View>
+            {images()}
         </Swiper>
       </View>
     );

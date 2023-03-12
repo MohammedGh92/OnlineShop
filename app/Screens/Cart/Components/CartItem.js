@@ -7,10 +7,15 @@ const {AppImage,AppText,AppIcon,AppQuantity} = require('../../Common/');
   const CartItem = (props) => {
 
     const {
+      id,
       name,
       image,
       price
     } = props.item;
+
+function onUpdateQuantity(num,plusOrMinus){
+  props.onUpdateQuantity(id-1,num,plusOrMinus);
+}
 
     return (
       <View style={{backgroundColor:GLOBAL.Color.white,
@@ -19,10 +24,10 @@ const {AppImage,AppText,AppIcon,AppQuantity} = require('../../Common/');
         <AppImage resizeMode={'cover'} source={image} width={90} height={96}/>
         <View style={{margin:widthPixel(10),alignItems:'flex-start',justifyContent:'space-between',height:'45%',width:'35%'}}>
           <AppText text={name} size={15}/>
-          <AppText text={price} size={15}/>
+          <AppText text={'$'+price} size={15}/>
         </View>
         <View style={{justifyContent:'center',height:'95%',width:'38%'}}>
-            <AppQuantity height={'30%'} width={'70%'}/>
+            <AppQuantity updateQuantity={onUpdateQuantity} height={'30%'} width={'70%'}/>
         </View>
       </View>
     );

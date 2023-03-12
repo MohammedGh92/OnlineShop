@@ -65,6 +65,11 @@ class PickLocation extends React.Component{
     // this.setState({MapSetted:true,longitude:NewCoord.longitude,latitude:NewCoord.latitude,firstLat:this.firstLat,firstLon:this.firstLon});
   }
 
+  onContinueClicked (){
+    Alert.alert('Your order is being processed!');
+    this.props.navigation.navigate('Home');
+  }
+
 
   render() {
     if(this.state.latitude===null)
@@ -87,7 +92,7 @@ class PickLocation extends React.Component{
           }}
           />
             <AppIcon style={{opacity:0.85,position:'absolute',top:'40%'}} name={'map-marker'} color={GLOBAL.Color.c1} size={60}/>
-            <AppBTN text={'Confirm Location'} style={{position:'absolute',bottom:'5%'}}/>
+            <AppBTN text={'Confirm Location'} style={{position:'absolute',bottom:'5%'}} onPress={()=>this.onContinueClicked()}/>
       </View>
     );
   }

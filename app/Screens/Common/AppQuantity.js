@@ -11,12 +11,14 @@ import {AppIcon,AppText} from './';
 
     const incAmount = () => {
       setQuantity(quantity+1);
+      props.updateQuantity(quantity+1,true);
     }
 
     const decAmount = () => {
         if(quantity<=1)
           return;
         setQuantity(quantity-1);
+        props.updateQuantity(quantity-1,false);
      }
 
      const{
