@@ -1,6 +1,7 @@
 module.exports = {
   STORE_KEY: 'a56z0fzrNpl^2',
   BASE_URL: 'http://someurl.com',
+  GOOGLE_PLAY_LINK:'https://play.google.com/store/apps/details?id=com.mhmdgh.onlineshop',
   Color: {
     c1: '#F37A00',
     c2: '#EF0016',

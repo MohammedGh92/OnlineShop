@@ -6,16 +6,34 @@ import {normalize,heightPixel,widthPixel} from './Utils/PixelNormalization';
 import {AppCircleIcon} from './';
 
 const AppTextInput = (props) => {
+
+  const {
+    keyboardType,
+    placeholder,
+    secureTextEntry,
+    multiline,
+    textAlignVertical,
+    hideIcon,
+    alignItems,
+    height,
+    width,
+    borderRadius,
+    marginTop,
+    iconFlex
+  } = props;
+
     return (
-      <View style={{marginTop:heightPixel(props.marginTop?props.marginTop:0),flexDirection:'row',
-        width:widthPixel(props.width?props.width:320),
-        height: heightPixel(props.height?props.height:50),borderRadius: normalize(props.borderRadius?props.borderRadius:50),
+      <View style={{marginTop:heightPixel(marginTop?marginTop:0),flexDirection:'row',
+        width:widthPixel(width?width:320),
+        height: heightPixel(height?height:50),borderRadius: normalize(borderRadius?borderRadius:50),
         borderColor:GLOBAL.Color.borderColor,
         borderWidth:normalize(2.5),
         alignSelf:'center',justifyContent:'center',
-        alignItems: 'center',backgroundColor: GLOBAL.Color.white}}>
-        <View style={{flex:props.iconFlex?props.iconFlex:1}}><AppCircleIcon {...props}/></View>
-        <View style={{flex:6}}><TextInput placeholder={props.placeholder?props.placeholder:"Email"} {...props.textStyle}/></View>
+        alignItems: alignItems?alignItems:'center',backgroundColor: GLOBAL.Color.white}}>
+        {hideIcon?<View style={{flex:1}}/>:<View style={{flex:iconFlex?iconFlex:1}}><AppCircleIcon {...props}/></View>}
+        <View style={{flex:hideIcon?12:6}}><TextInput textAlignVertical={textAlignVertical?textAlignVertical:'auto'} multiline={multiline} secureTextEntry={secureTextEntry}
+         placeholder={placeholder?placeholder:'Email'} keyboardType={keyboardType}
+         textStyle={props.textStyle}/></View>
       </View>
     );
   }

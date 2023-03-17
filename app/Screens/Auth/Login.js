@@ -38,8 +38,8 @@ class Login extends React.Component{
             <LogoAndName/>
             <AppText marginTop={27} text="Welcome back" size={24}/>
             <AppText marginTop={3} text={"Login"} size={14} color={GLOBAL.Color.darkGrey} fontFamily={'Montserrat-SemiBold'}/>
-            <AppTextInput marginTop={40}/>
-            <AppTextInput marginTop={10} name={'lock'} placeholder={'Password'}/>
+            <AppTextInput marginTop={40} keyboardType={'email-address'}/>
+            <AppTextInput marginTop={10} name={'lock'} secureTextEntry placeholder={'Password'}/>
             <TouchableOpacity onPress={()=>this.onForgotPasswordClick()} style={{marginTop:heightPixel(10)}}><AppText text={"Forget Password?"} color={GLOBAL.Color.darkGrey}
             size={14} fontFamily={'Montserrat-SemiBold'}/>
             </TouchableOpacity>
@@ -54,6 +54,5 @@ class Login extends React.Component{
     );
   }
 }
-
 
 export default Login;

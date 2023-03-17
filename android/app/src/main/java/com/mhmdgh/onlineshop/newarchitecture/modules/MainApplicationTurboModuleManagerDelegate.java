@@ -1,4 +1,4 @@
-package com.onlineshop.newarchitecture.modules;
+package com.mhmdgh.onlineshop.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

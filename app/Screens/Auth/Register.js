@@ -19,6 +19,14 @@ onSignUpClick(){
             });
 }
 
+onPrivacyClick(){
+  this.props.navigation.navigate('Privacy');
+}
+
+onTermsClick(){
+  this.props.navigation.navigate('Terms');
+}
+
   render() {
     return (
       <ScrollView>
@@ -26,15 +34,16 @@ onSignUpClick(){
             <LogoAndName/>
             <AppText marginTop={20} text="New account" size={26}/>
             <AppText marginTop={2} text={"Register"} size={14} color={GLOBAL.Color.darkGrey} fontFamily={'Montserrat-SemiBold'}/>
-            <AppTextInput marginTop={10}/>
-            <AppTextInput marginTop={10} name={'cellphone'} placeholder={'Phone'}/>
-            <AppTextInput marginTop={10} name={'lock'} placeholder={'Password'}/>
-            <AppTextInput marginTop={10} name={'lock'} placeholder={'Password confirmation'}/>
+            <AppTextInput marginTop={10} keyboardType={'email-address'}/>
+            <AppTextInput marginTop={10} keyboardType={'numeric'} name={'cellphone'} placeholder={'Phone'}/>
+            <AppTextInput marginTop={10} secureTextEntry name={'lock'} placeholder={'Password'}/>
+            <AppTextInput marginTop={10} secureTextEntry name={'lock'} placeholder={'Password confirmation'}/>
             <View style={{marginTop:heightPixel(15),flexDirection:'row',justifyContent:'center'}}>
               <AppCheckBox/>
-              <TouchableOpacity><AppText text={"\t \t I agree to the privacy policy and terms of use"} color={GLOBAL.Color.darkGrey}
-              size={12} fontFamily={'Montserrat-SemiBold'}/>
-              </TouchableOpacity>
+              <AppText text={"\t \t I agree to the "} color={GLOBAL.Color.darkGrey} size={12} fontFamily={'Montserrat-SemiBold'}/>
+              <TouchableOpacity onPress={()=>this.onPrivacyClick()}><AppText text={"privacy policy"} textStyle={{textDecorationLine:'underline'}} color={'blue'} size={12} fontFamily={'Montserrat-SemiBold'}/></TouchableOpacity>
+              <AppText text={" and "} color={GLOBAL.Color.darkGrey} size={12} fontFamily={'Montserrat-SemiBold'}/>
+              <TouchableOpacity onPress={()=>this.onTermsClick()}><AppText text={"terms of use"} color={'blue'} textStyle={{textDecorationLine:'underline'}} size={12} fontFamily={'Montserrat-SemiBold'}/></TouchableOpacity>
             </View>
             <AppBTN marginTop={40} onPress={()=>this.onSignUpClick()} text={'Register'}/>
             <View style={{marginTop:heightPixel(55),flexDirection:'row'}}>

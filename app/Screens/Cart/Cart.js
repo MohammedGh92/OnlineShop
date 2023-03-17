@@ -64,7 +64,7 @@ updateQuantity=(itemID,newQuantity,plusOrMinus)=>{
     return (
         <View style={{width:'100%',height:'100%'}}>
           <View style={{width:ScreenWidth,height:ScreenHeight*.88,alignItems:'center'}}>
-            <View style={{width:'100%',height:heightPixel(380)}}>
+            <View style={{width:'100%',height:heightPixel(330)}}>
               <AppFlatList numColumns={1} data={Data.Cart} renderItem={({item})=> <CartItem item={item} onUpdateQuantity={this.updateQuantity}/>}/>
             </View>
             <View style={{alignItems:'center',flexDirection:'row',marginTop:heightPixel(30),width:'85%',height:'7%',borderRadius:normalize(30),backgroundColor:'white'}}>

@@ -4,10 +4,13 @@ import {fontPixel,heightPixel,widthPixel} from '../Common/Utils/PixelNormalizati
 import {AppTopBar,AppFlatList,AppText,AppProductItem} from '../Common/';
 import Data from '../MockData/data';
 var products = null;
+var secitionName='Products';
+var sectionID=null;
+var subSectionsID=null;
 
 class Products extends React.Component{
 
-  billItem = () => {
+  noProducts = () => {
   return (
     <View style={{justifyContent:'center',alignItems:'center',height:'75%',width:'100%'}}>
       <AppText text={'No Products'} size={18}/>
@@ -17,35 +20,32 @@ class Products extends React.Component{
 
 
   getData(){
+    products=null;
+    if(!this.props.route ||!this.props.route.params)
+      return;
     const{
       sectionID,
       subSectionsID
     } = this.props.route.params;
-    products=null;
     if(sectionID>=Data.Products.length)
       return;
     if(subSectionsID>=Data.Products[sectionID].length)
       return;
     products = Data.Products[sectionID][subSectionsID];
+    secitionName = this.props.route.params.secitionName;
   }
 
   render() {
-    const{
-      secitionName,
-      sectionID,
-      subSectionsID
-    } = this.props.route.params;
     this.getData();
-
     return (
       <View style={{alignItems:'center'}}>
         <AppTopBar title={secitionName}/>
         <View style={{height:'100%',width:'95%'}}>
           {products?
-          <AppFlatList style={{width:'100%'}} numColumns={2} data={Data.Products[sectionID][subSectionsID]}
+          <AppFlatList style={{width:'100%'}} numColumns={2} data={products}
           renderItem={({item})=> <AppProductItem height={heightPixel(300)} item={item}/>}/>
           :
-            this.billItem()}
+            this.noProducts()}
           <View style={{height:'16%'}}/>
         </View>
       </View>
