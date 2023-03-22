@@ -55,11 +55,11 @@ export function navigate(name, params) {
     return (
     <NavigationContainer ref={navigationRef} theme={navTheme}>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Welcome" component={Welcome}/>
         <Stack.Screen name="Register" component={Register}/>
         <Stack.Screen name="Login" component={Login}/>
         <Stack.Screen name="ForgetPass" component={ForgetPass}/>
+        <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Sections" component={Sections}/>
         <Stack.Screen name="SubSections" component={SubSections}/>
         <Stack.Screen name="Products" component={Products} />
@@ -77,7 +77,6 @@ export function navigate(name, params) {
         <Stack.Screen name="HelpCenter" component={HelpCenter}/>
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="MyFav" component={MyFav}/>
-        <Stack.Screen name="NoInternet" component={NoInternet}/>
         <Stack.Screen name="Privacy" component={Privacy}/>
         <Stack.Screen name="Terms" component={Terms}/>
         <Stack.Screen name="ContactUs" component={ContactUs}/>

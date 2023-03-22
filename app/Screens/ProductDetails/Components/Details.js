@@ -7,7 +7,9 @@ import StarRating from 'react-native-star-rating-widget';
 
   const Details = (props) => {
 
-function nothing(){}
+    const onChangeRating = () => {
+
+    }
 
         return (
           <View style={{alignSelf:'center',width:'95%',height:heightPixel(130)}}>
@@ -27,8 +29,8 @@ function nothing(){}
               </View>
             </View>
             <View style={{alignItems:'center',flexDirection:'row',width:'100%',height:'25%'}}>
-              <StarRating emptyColor={GLOBAL.Color.grey} starSize={normalize(20)} starStyle={{width:'5%'}}
-              style={{alignItems:'center',width:'25%'}} rating={3} onChange={nothing}/>
+              <StarRating onChange={onChangeRating} emptyColor={GLOBAL.Color.grey} starSize={normalize(20)} starStyle={{width:'5%'}}
+              style={{alignItems:'center',width:'25%'}} rating={3}/>
               <AppText text={'3.0'} size={15} color={GLOBAL.Color.darkGold}/>
             </View>
           </View>

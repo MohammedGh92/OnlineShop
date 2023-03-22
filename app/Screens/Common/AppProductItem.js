@@ -22,6 +22,10 @@ const AppProductItem = (props) => {
     RootNavigation.navigationRef.navigate('ProductDetails');
   }
 
+  const onChangeRating = () => {
+
+  }
+
     return (
         <View style={{borderColor:GLOBAL.Color.borderColor,borderWidth:1,alignItems:'center',backgroundColor:'white',margin:widthPixel(5),width:widthPixel(170),height:props.height?props.height:'100%'}}>
           <TouchableOpacity activeOpacity={0.9} onPress={onClick} style={{height:'47%',width:'100%'}}>
@@ -33,7 +37,7 @@ const AppProductItem = (props) => {
             </ImageBackground>
               <AppText margin={5} marginTop={5} size={10} textAlign={'left'} text={'\t  '+model} color={'#8A888C'}/>
               <AppText margin={10} textAlign={'left'} size={10.5} color={GLOBAL.Color.darkGrey} text={name}/>
-              <StarRating emptyColor={GLOBAL.Color.grey} starSize={normalize(20)} starStyle={{width:'5%'}} style={{alignItems:'center',width:'45%',height:'10%'}} rating={rating}/>
+              <StarRating onChange={onChangeRating} emptyColor={GLOBAL.Color.grey} starSize={normalize(20)} starStyle={{width:'5%'}} style={{alignItems:'center',width:'45%',height:'10%'}} rating={rating}/>
               <View style={{alignItems:'center',justifyContent:'space-between',flexDirection:'row',margin:normalize(13)}}>
                 <View>
                   <AppText crossed text={'$'+oldPrice} size={11} color={GLOBAL.Color.grey} textAlign='left'/>

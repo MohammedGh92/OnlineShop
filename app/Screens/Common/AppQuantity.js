@@ -11,6 +11,7 @@ import {AppIcon,AppText} from './';
 
     const incAmount = () => {
       setQuantity(quantity+1);
+      if(props.updateQuantity)
       props.updateQuantity(quantity+1,true);
     }
 
@@ -18,6 +19,7 @@ import {AppIcon,AppText} from './';
         if(quantity<=1)
           return;
         setQuantity(quantity-1);
+        if(props.updateQuantity)
         props.updateQuantity(quantity-1,false);
      }
 
