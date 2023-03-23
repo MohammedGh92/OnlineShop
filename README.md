@@ -30,4 +30,4 @@
 * 4 ) Run 'react-native run-android' for android and 'react-native run-ios' for iOS from the command line.
 
 ## App direct download link
- * 
+ * https://drive.google.com/file/d/1fp_rcZowr_LI28uHyIiGYLiKN4kLJ1Oa/view?usp=sharing
