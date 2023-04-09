@@ -2,7 +2,7 @@ module.exports=
   [
     {
       id: '1',
-      link:require('./Components/SamplePhotos/1.png'),
+      link:require('./Components/SamplePhotos/1.jpg'),
     },
     {
       id: '2',
@@ -10,7 +10,7 @@ module.exports=
     },
     {
       id: '3',
-      link:require('./Components/SamplePhotos/3.png'),
+      link:require('./Components/SamplePhotos/3.jpg'),
     },
     {
       id: '4',

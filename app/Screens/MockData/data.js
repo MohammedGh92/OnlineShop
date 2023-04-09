@@ -23,7 +23,7 @@ Home:{
       },
       {
         id:3,
-        link:require('./SamplePhotos/Product1-3.png'),
+        link:require('./SamplePhotos/Product1-3.jpg'),
         model:'Collection',
         name:'Handy tools',
         oldPrice:300,
@@ -34,7 +34,7 @@ Home:{
     ],NewProducts:[
       {
         id:1,
-        link:require('./SamplePhotos/Product2-1.png'),
+        link:require('./SamplePhotos/Product2-1.jpg'),
         model:'Fresh',
         name:'Home mug',
         oldPrice:50,
@@ -44,7 +44,7 @@ Home:{
       },
       {
         id:2,
-        link:require('./SamplePhotos/Product2-2.png'),
+        link:require('./SamplePhotos/Product2-2.jpg'),
         model:'Shampoo',
         name:'John Masters ',
         oldPrice:50,
@@ -54,7 +54,7 @@ Home:{
       },
       {
         id:3,
-        link:require('./SamplePhotos/Product2-3.png'),
+        link:require('./SamplePhotos/Product2-3.jpg'),
         model:'FIJI',
         name:'Water bottle',
         oldPrice:10,
@@ -65,7 +65,7 @@ Home:{
     ],Perfumes:[
       {
         id:1,
-        link:require('./SamplePhotos/Product3-1.png'),
+        link:require('./SamplePhotos/Product3-1.jpg'),
         model:'Chanel',
         name:'Chanel N5',
         oldPrice:120,
@@ -75,7 +75,7 @@ Home:{
       },
       {
         id:2,
-        link:require('./SamplePhotos/Product3-2.png'),
+        link:require('./SamplePhotos/Product3-2.jpg'),
         model:'Dior',
         name:'Miss Dior',
         oldPrice:110,
@@ -85,7 +85,7 @@ Home:{
       },
       {
         id:3,
-        link:require('./SamplePhotos/Product3-3.png'),
+        link:require('./SamplePhotos/Product3-3.jpg'),
         model:'PHLUR',
         name:'SOMEBODY WOOD',
         oldPrice:100,
@@ -96,7 +96,7 @@ Home:{
     ],Clothes:[
       {
         id:1,
-        link:require('./SamplePhotos/Product4-1.png'),
+        link:require('./SamplePhotos/Product4-1.jpg'),
         model:'PALA',
         name:'Winter Jacket M',
         oldPrice:50,
@@ -106,7 +106,7 @@ Home:{
       },
       {
         id:2,
-        link:require('./SamplePhotos/Product4-2.png'),
+        link:require('./SamplePhotos/Product4-2.jpg'),
         model:'FLAIR',
         name:'Shirt',
         oldPrice:55,
@@ -116,7 +116,7 @@ Home:{
       },
       {
         id:3,
-        link:require('./SamplePhotos/Product4-3.png'),
+        link:require('./SamplePhotos/Product4-3.jpg'),
         model:'Vogue',
         name:'Jeans',
         oldPrice:52,
@@ -127,7 +127,7 @@ Home:{
     ],Electric:[
       {
         id:1,
-        link:require('./SamplePhotos/Product5-1.png'),
+        link:require('./SamplePhotos/Product5-1.jpg'),
         model:'Ronix',
         name:'Elictric Drill',
         oldPrice:80,
@@ -137,7 +137,7 @@ Home:{
       },
       {
         id:2,
-        link:require('./SamplePhotos/Product5-2.png'),
+        link:require('./SamplePhotos/Product5-2.jpg'),
         model:'dyson',
         name:'Vacuum Cleaner',
         oldPrice:120,
@@ -147,7 +147,7 @@ Home:{
       },
       {
         id:3,
-        link:require('./SamplePhotos/Product5-3.png'),
+        link:require('./SamplePhotos/Product5-3.jpg'),
         model:'LG',
         name:'52 inch TV',
         oldPrice:250,
@@ -183,7 +183,7 @@ Products:[
           },
           {
             id:3,
-            link:require('./SamplePhotos/Product1-3.png'),
+            link:require('./SamplePhotos/Product1-3.jpg'),
             model:'Collection',
             name:'Handy tools',
             oldPrice:300,
@@ -210,7 +210,7 @@ Cart:[
         },{
           id:3,
           name:'Order 3',
-          image:require('./SamplePhotos/Product1-3.png'),
+          image:require('./SamplePhotos/Product1-3.jpg'),
           price:400,
           quantity:2
         },{
@@ -227,7 +227,7 @@ ProductDetails:{
         images:[
           require('./SamplePhotos/Product1-1.png'),
           require('./SamplePhotos/Product1-2.png'),
-          require('./SamplePhotos/Product1-3.png'),
+          require('./SamplePhotos/Product1-3.jpg'),
         ],
         oldPrice:200,
         discount:50,
@@ -246,7 +246,7 @@ Sections:[
           {
             id:1,
             name:'All Products',
-            image:require('./SamplePhotos/Section1-1.png'),
+            image:require('./SamplePhotos/Section1-1.jpg'),
           },
           {
             id:2,
