@@ -25,6 +25,7 @@ import Cart from './Screens/Cart/Cart';
 import ContactUs from './Screens/ContactUs/ContactUs';
 import Terms from './Screens/Terms/Terms';
 import Privacy from './Screens/Privacy/Privacy';
+import NewScreen from './Screens/NewScreen/NewScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createNavigationContainerRef } from '@react-navigation/native';
 
@@ -55,6 +56,7 @@ export function navigate(name, params) {
     return (
     <NavigationContainer ref={navigationRef} theme={navTheme}>
       <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="NewScreen" component={NewScreen}/>
         <Stack.Screen name="Welcome" component={Welcome}/>
         <Stack.Screen name="Register" component={Register}/>
         <Stack.Screen name="Login" component={Login}/>
