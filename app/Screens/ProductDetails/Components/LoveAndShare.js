@@ -14,7 +14,6 @@ function ImgItem(props){
 
     return (
       <View style={{position:'absolute',top:5,right:5,justifyContent:'space-between',width:'12%',height:heightPixel(80)}}>
-        <AppIcon color={GLOBAL.Color.c1} name={'heart-outline'} size={35}/>
         <AppIcon color={GLOBAL.Color.c1} name={'share-variant'} size={35}/>
       </View>
     );

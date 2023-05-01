@@ -1,6 +1,5 @@
 import React from 'react';
-import {View,Text,TextInput} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {View,TextInput} from 'react-native';
 const GLOBAL = require('./Globals');
 import {normalize,heightPixel,widthPixel} from './Utils/PixelNormalization';
 import {AppCircleIcon} from './';
@@ -19,7 +18,10 @@ const AppTextInput = (props) => {
     width,
     borderRadius,
     marginTop,
-    iconFlex
+    iconFlex,
+    onEndEditing,
+    defaultValue,
+    editable
   } = props;
 
     return (
@@ -31,8 +33,10 @@ const AppTextInput = (props) => {
         alignSelf:'center',justifyContent:'center',
         alignItems: alignItems?alignItems:'center',backgroundColor: GLOBAL.Color.white}}>
         {hideIcon?<View style={{flex:1}}/>:<View style={{flex:iconFlex?iconFlex:1}}><AppCircleIcon {...props}/></View>}
-        <View style={{flex:hideIcon?12:6}}><TextInput textAlignVertical={textAlignVertical?textAlignVertical:'auto'} multiline={multiline} secureTextEntry={secureTextEntry}
-         placeholder={placeholder?placeholder:'Email'} keyboardType={keyboardType}
+        <View style={{flex:hideIcon?12:6}}><TextInput editable={editable} textAlignVertical={textAlignVertical?textAlignVertical:'auto'} multiline={multiline} secureTextEntry={secureTextEntry}
+         placeholder={placeholder?placeholder:'Email'} keyboardType={keyboardType} 
+         onEndEditing={(text) => {onEndEditing?onEndEditing(text.nativeEvent.text):null}}
+         defaultValue={defaultValue}
          textStyle={props.textStyle}/></View>
       </View>
     );

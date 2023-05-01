@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Home from './Screens/Home/Home';
 import Welcome from './Screens/Welcome/Welcome';
 import Login from './Screens/Auth/Login';
@@ -26,10 +26,10 @@ import ContactUs from './Screens/ContactUs/ContactUs';
 import Terms from './Screens/Terms/Terms';
 import Privacy from './Screens/Privacy/Privacy';
 import NewScreen from './Screens/NewScreen/NewScreen';
+import NewScreen2 from './Screens/NewScreen2/NewScreen2';
+import NewScreen3 from './Screens/NewScreen3/NewScreen3';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createNavigationContainerRef } from '@react-navigation/native';
-
-
 import {
   DefaultTheme,
   NavigationContainer,
@@ -47,67 +47,47 @@ const navTheme = {
 };
 
 export const navigationRef = createNavigationContainerRef();
+
 export function navigate(name, params) {
   if (navigationRef.isReady()) {
     navigationRef.navigate(name, params);
   }
 }
-  export default function MyStack() {
-    return (
+
+export default function MyStack() {
+
+  return (
     <NavigationContainer ref={navigationRef} theme={navTheme}>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="NewScreen" component={NewScreen}/>
-        <Stack.Screen name="Welcome" component={Welcome}/>
-        <Stack.Screen name="Register" component={Register}/>
-        <Stack.Screen name="Login" component={Login}/>
-        <Stack.Screen name="ForgetPass" component={ForgetPass}/>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="NewScreen3" component={NewScreen3} />
+        <Stack.Screen name="NewScreen2" component={NewScreen2} />
+        <Stack.Screen name="NewScreen" component={NewScreen} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="ForgetPass" component={ForgetPass} />
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Sections" component={Sections}/>
-        <Stack.Screen name="SubSections" component={SubSections}/>
+        <Stack.Screen name="Sections" component={Sections} />
+        <Stack.Screen name="SubSections" component={SubSections} />
         <Stack.Screen name="Products" component={Products} />
-        <Stack.Screen name="ProductDetails" component={ProductDetails}/>
-        <Stack.Screen name="Cart" component={Cart}/>
-        <Stack.Screen name="Shipping" component={Shipping}/>
-        <Stack.Screen name="PickLocation" component={PickLocation}/>
-        <Stack.Screen name="MyOrders" component={MyOrders}/>
-        <Stack.Screen name="SearchProducts" component={SearchProducts}/>
-        <Stack.Screen name="Brands" component={Brands}/>
-        <Stack.Screen name="NavScreen" component={NavScreen}/>
-        <Stack.Screen name="Wallet" component={Wallet}/>
-        <Stack.Screen name="About" component={About}/>
-        <Stack.Screen name="Profile" component={Profile}/>
-        <Stack.Screen name="HelpCenter" component={HelpCenter}/>
+        <Stack.Screen name="ProductDetails" component={ProductDetails} />
+        <Stack.Screen name="Shipping" component={Shipping} />
+        <Stack.Screen name="Cart" component={Cart} />
+        <Stack.Screen name="PickLocation" component={PickLocation} />
+        <Stack.Screen name="MyOrders" component={MyOrders} />
+        <Stack.Screen name="SearchProducts" component={SearchProducts} />
+        <Stack.Screen name="Brands" component={Brands} />
+        <Stack.Screen name="NavScreen" component={NavScreen} />
+        <Stack.Screen name="Wallet" component={Wallet} />
+        <Stack.Screen name="About" component={About} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="HelpCenter" component={HelpCenter} />
         <Stack.Screen name="Settings" component={Settings} />
-        <Stack.Screen name="MyFav" component={MyFav}/>
-        <Stack.Screen name="Privacy" component={Privacy}/>
-        <Stack.Screen name="Terms" component={Terms}/>
-        <Stack.Screen name="ContactUs" component={ContactUs}/>
+        <Stack.Screen name="MyFav" component={MyFav} />
+        <Stack.Screen name="Privacy" component={Privacy} />
+        <Stack.Screen name="Terms" component={Terms} />
+        <Stack.Screen name="ContactUs" component={ContactUs} />
       </Stack.Navigator>
     </NavigationContainer>
-    );
-  }
-
-
-  // <Stack.Screen name="Welcome" component={Welcome}/>
-  // <Stack.Screen name="Register" component={Register}/>
-  // <Stack.Screen name="Login" component={Login}/>
-  // <Stack.Screen name="ForgetPass" component={ForgetPass}/>
-  // <Stack.Screen name="Home" component={Home} />
-  // <Stack.Screen name="Sections" component={Sections}/>
-  // <Stack.Screen name="SubSections" component={SubSections}/>
-  // <Stack.Screen name="Products" component={Products} />
-  // <Stack.Screen name="ProductDetails" component={ProductDetails}/>
-  // <Stack.Screen name="Cart" component={Cart}/>
-  // <Stack.Screen name="Shipping" component={Shipping}/>
-  // <Stack.Screen name="PickLocation" component={PickLocation}/>
-  // <Stack.Screen name="MyOrders" component={MyOrders}/>
-  // <Stack.Screen name="SearchProducts" component={SearchProducts}/>
-  // <Stack.Screen name="Brands" component={Brands}/>
-  // <Stack.Screen name="NavScreen" component={NavScreen}/>
-  // <Stack.Screen name="Wallet" component={Wallet}/>
-  // <Stack.Screen name="About" component={About}/>
-  // <Stack.Screen name="Profile" component={Profile}/>
-  // <Stack.Screen name="HelpCenter" component={HelpCenter}/>
-  // <Stack.Screen name="Settings" component={Settings} />
-  // <Stack.Screen name="MyFav" component={MyFav}/>
-  // <Stack.Screen name="NoInternet" component={NoInternet}/>
+  );
+}

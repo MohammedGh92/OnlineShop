@@ -43,9 +43,9 @@ const AppProductItem = (props) => {
                   <AppText crossed text={'$'+oldPrice} size={11} color={GLOBAL.Color.grey} textAlign='left'/>
                   <AppText marginTop={3} text={'$'+price} size={12} color={GLOBAL.Color.c1} textAlign='left'/>
                 </View>
-                <AppIcon color={GLOBAL.Color.c1} size={25} name={'heart-outline'}/>
               </View>
-              <AppBTN text={'Add to cart'} textColor={GLOBAL.Color.c1} height={heightPixel(30)} width={heightPixel(150)} textSize={11} borderColor={GLOBAL.Color.c1} borderWidth={3} color={'transparent'} borderRadius={7}/>
+              <AppBTN text={'View Details'} textColor={GLOBAL.Color.c1} height={heightPixel(30)} onPress={onClick} 
+              width={heightPixel(150)} textSize={11} borderColor={GLOBAL.Color.c1} borderWidth={3} color={'transparent'} borderRadius={7}/>
           </TouchableOpacity>
         </View>
     );

@@ -23,6 +23,7 @@ const AppFlatList = (props) => {
         style={[{height:heightPixel(700),width:'100%'},{...props.style}]}
         numColumns={1}
         data={props.data}
+        keyExtractor={(item) => item.id}
         renderItem={props.renderItem}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
@@ -32,6 +33,7 @@ const AppFlatList = (props) => {
       nestedScrollEnabled
         style={[{height:heightPixel(700),width:widthPixel(320)},{...props.style}]}
         {...props}
+        keyExtractor={(item) => item.id}
         numColumns={props.numColumns}
         columnWrapperStyle={{justifyContent:'space-between'}}
         data={props.data}

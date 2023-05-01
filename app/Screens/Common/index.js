@@ -17,4 +17,5 @@ export AppQuantity from './AppQuantity';
 export AppHorListOfItems from './AppHorListOfItems';
 export AppListItem from './AppListItem';
 export AppToggleBTN from './AppToggleBTN';
+export AppLoader from './AppLoader';
 export * from './Globals';

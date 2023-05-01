@@ -1,6 +1,5 @@
 import React from 'react';
 import {View,StyleSheet} from 'react-native';
-const GLOBAL = require('../../Common/Globals');
 import {heightPixel} from '../../Common/Utils/PixelNormalization';
 const {AppImage} = require('../../Common/');
 import Swiper from 'react-native-swiper';
