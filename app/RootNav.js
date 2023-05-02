@@ -65,9 +65,9 @@ export default function MyStack() {
         <Stack.Screen name="NewScreen" component={NewScreen} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Sections" component={Sections} />
         <Stack.Screen name="ForgetPass" component={ForgetPass} />
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Sections" component={Sections} />
         <Stack.Screen name="SubSections" component={SubSections} />
         <Stack.Screen name="Products" component={Products} />
         <Stack.Screen name="ProductDetails" component={ProductDetails} />

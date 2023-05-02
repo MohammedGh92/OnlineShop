@@ -1,10 +1,10 @@
 import React from 'react';
-import { Image } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import { heightPixel, widthPixel } from './Utils/PixelNormalization';
 
 const AppImage = (props) => {
   return (
-    <Image style={[{
+    <FastImage style={[{
       alignSelf: 'center',
       marginTop: heightPixel(props.marginTop ? props.marginTop : 0),
       width: widthPixel(props.width ? props.width : 320),
