@@ -5,19 +5,32 @@ const ScreenWidth = Dimensions.get('window').width;
 import { AppText, LogoAndName, AppBTN, AppLoader } from '../Common/';
 const GLOBAL = require('../Common/Globals');
 import { heightPixel } from '../Common/Utils/PixelNormalization';
+import { LoginForm } from './Components/';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import user from '../../user';
-import { LoginForm } from './Components/';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { loadData } from "../../redux/slices/userSlice";
 
 export default function Login(props) {
+
+  // const userState = useSelector(state => state.user);
+  // const dispatch = useDispatch();
+  // const loadUserData = () => { dispatch(loadData()); }
+  // console.log('userState:' + JSON.stringify(userState))
 
   const [initializing, setInitializing] = useState(true);
   const [fullLoading, setFullLoading] = useState(true);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({ Status: 0 });
+  const {
+    Email,
+    Phone,
+    Password
+  } = data;
 
   useEffect(() => {
+    // loadUserData();
     auth().onAuthStateChanged(onAuthStateChanged);
     if (data.Status == 0)
       checkSavedAccount();
@@ -42,7 +55,7 @@ export default function Login(props) {
   function moveToNextScreen() {
     props.navigation.reset({
       index: 0,
-      routes: [{ name: 'Home' }],
+      routes: [{ name: 'NewScreen3' }],
     });
   }
 
@@ -53,10 +66,6 @@ export default function Login(props) {
   function onSignInClick() {
     if (!data || loading)
       return;
-    const {
-      Email,
-      Password
-    } = data;
     setLoading(true);
     auth()
       .signInWithEmailAndPassword(Email, Password)
@@ -77,10 +86,6 @@ export default function Login(props) {
     setThisData(2, data.Email, '', fireStoreuser.data().phone);
   }
 
-  function setThisData(status, email, password, phone) {
-    setData({ Status: status, Email: email, Password: password, Phone: phone });
-  }
-
   function onSkipClick() {
     moveToNextScreen();
   }
@@ -90,10 +95,6 @@ export default function Login(props) {
   }
 
   async function saveUserDataLocally() {
-    const {
-      Email,
-      Phone
-    } = data;
     const userObj = { email: Email, phone: Phone };
     await user.saveData(userObj);
     moveToNextScreen();
@@ -111,6 +112,10 @@ export default function Login(props) {
     } = data;
     setThisData(1, Email, Password, '');
   };
+
+  function setThisData(status, email, password, phone) {
+    setData({ Status: status, Email: email, Password: password, Phone: phone });
+  }
 
   return (
     <ScrollView>

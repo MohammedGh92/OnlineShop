@@ -1,12 +1,11 @@
-import {createStore,applyMiddleware} from 'redux';
-import counterSlice from './counterSlice';
-import ReduxThunk from 'redux-thunk'
+import counterSlice from './slices/counterSlice';
+import userSlice from './slices/userSlice';
 import { configureStore } from '@reduxjs/toolkit'
 
 export const store = configureStore({
   reducer: {
-    counter: counterSlice
-
+    counter: counterSlice,
+    user: userSlice
   },
 })
 

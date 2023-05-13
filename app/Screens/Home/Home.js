@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, ScrollView, KeyboardAvoidingView } from 'react-native';
-import { AppTopBar, AppBottomBar, AppLoader, AppHorListOfItems, AppSearchBar } from '../Common/';
+import { View, ScrollView } from 'react-native';
+import { AppBottomBar, AppLoader, AppHorListOfItems, AppSearchBar } from '../Common/';
 import { BigPromo, TwoPromos, WideBanner } from './Components/';
-import { normalize, heightPixel } from '../Common/Utils/PixelNormalization';
+import { heightPixel } from '../Common/Utils/PixelNormalization';
 import firestore from '@react-native-firebase/firestore';
 
 class Home extends React.Component {
@@ -24,7 +24,6 @@ class Home extends React.Component {
       .collection('home')
       .get()
       .then(documentSnapshot => {
-        console.log(documentSnapshot.docs)
         this.setState({ data: documentSnapshot.docs, loading: false })
       });
   }

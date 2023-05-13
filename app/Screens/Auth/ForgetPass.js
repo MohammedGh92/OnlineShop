@@ -1,28 +1,65 @@
-import React, {Component} from 'react';
-import {Dimensions,View} from 'react-native';
-const ScreenHeight=Dimensions.get('window').height;
-const ScreenWidth=Dimensions.get('window').width;
-import {AppText,LogoAndName,AppBTN,AppTextInput} from '../Common/';
+import React, { useState, useEffect } from 'react';
+import { Dimensions, View, Alert } from 'react-native';
+const ScreenHeight = Dimensions.get('window').height;
+const ScreenWidth = Dimensions.get('window').width;
+import { AppText, LogoAndName, AppBTN, AppTextInput } from '../Common/';
 const GLOBAL = require('../Common/Globals');
-import {fontPixel,heightPixel,widthPixel} from '../Common/Utils/PixelNormalization';
+import { ForgetPassForm } from './Components/';
+import auth from '@react-native-firebase/auth';
 
-class ForgetPass extends React.Component{
+export default function ForgetPass(props) {
 
-onSendClick(){
-  this.props.navigation.goBack();
-}
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState({ Status: 0 });
+  const {
+    Status,
+    Email
+  } = data;
 
-  render() {
-    return (
-        <View style={{alignItems:'center',height:ScreenHeight*0.95,width:ScreenWidth}}>
-            <LogoAndName/>
-            <AppText marginTop={20} text="Forget password" size={26}/>
-            <AppText marginTop={2} text={"Enter your email to get \n an activation message"} size={14}
-             color={GLOBAL.Color.darkGrey} fontFamily={'Montserrat-SemiBold'}/>
-            <AppTextInput marginTop={40} name={'email'} placeholder={'Email'}/>
-            <AppBTN onPress={()=>this.onSendClick()} marginTop={50} text={'Send'}/>
-        </View>
-    );
+  useEffect(() => {
+    if (Status == 1)
+      onSendClick();
+  }, [data]);
+
+
+
+  async function onSendClick() {
+    if (!data || loading)
+      return;
+    setLoading(true);
+    await auth()
+      .sendPasswordResetEmail(Email)
+      .then(() => {
+        Alert.alert('Password reset email has been sent!');
+        props.navigation.goBack();
+      })
+      .catch(error => {
+        console.error('Error:' + error)
+      });
+    setThisData(0);
+    setLoading(false);
   }
+
+  const onSubmit = data => {
+    const {
+      Email
+    } = data;
+    setThisData(1, Email);
+  };
+
+  function setThisData(status, email) {
+    setData({ Status: status, Email: email })
+  }
+
+
+  return (
+    <View style={{ alignItems: 'center', height: ScreenHeight * 0.95, width: ScreenWidth }}>
+      <LogoAndName />
+      <AppText marginTop={20} text="Forget password" size={26} />
+      <AppText marginTop={2} text={"Enter your email to get \n an activation message"} size={14}
+        color={GLOBAL.Color.darkGrey} fontFamily={'Montserrat-SemiBold'} />
+      <ForgetPassForm loading={loading} onSubmitClicked={onSubmit} />
+
+    </View>
+  );
 }
-export default ForgetPass;

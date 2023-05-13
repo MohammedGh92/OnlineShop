@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 // import store from '../redux/store';//NewScreen2
 import toolKitStore from '../redux/toolKitStore';//NewScreen3
 
-function Setup(props) {
+function Setup() {
 
   return (
     <Provider store={toolKitStore}>

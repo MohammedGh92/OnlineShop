@@ -1,7 +1,6 @@
 import {INCREAMENT,DECREAMENT,INCBYAMOUNT,GETAPI} from "../actions/types"
 
 const counterReducer = (state ={count:1,user:''},action)=>{
-  console.log('counterReducer:'+action.type+','+action.amount);
   switch (action.type) {
     case INCREAMENT:
       return {...state,count:state.count+1}

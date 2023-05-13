@@ -1,44 +1,22 @@
-import React, {Component,useState, useEffect} from 'react'
-import axios from 'axios';
-import {Text,View,StyleSheet} from 'react-native'
-import {AppText,LogoAndName,AppImage,AppBTN} from '../Common/';
-import { connect } from 'react-redux';
-import {increase,decrease,incByAmount,getAPI} from '../../actions/action';
+import React from 'react'
+import { View } from 'react-native'
+import { AppText, AppBTN } from '../Common/';
+import { useSelector, useDispatch } from 'react-redux';
+// import { increment, incByAmount, getAPI } from "../../redux/slices";
 
-class NewScreen extends React.Component{
+export default function NewScreen() {
+  // const countState = useSelector(state => state.counter);
+  // const dispatch = useDispatch();
 
-  state = {
-         myState:0
-     }
-
-  render() {
-    console.log(this.props.count);
-    return (
-      <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-        <AppText text={"Here:"+this.props.count} size={29}/>
-        <AppText text={"State:"+this.state.myState} size={29}/>
-        <AppBTN marginTop={20} text={'inc'} onPress={()=>this.props.increase()}/>
-        <AppBTN marginTop={20} text={'dec'} onPress={()=>this.props.decrease()}/>
-        <AppBTN marginTop={20} text={'change'} onPress={()=>this.props.incByAmount(3)}/>
-        <AppBTN marginTop={20} text={'getAPI'} onPress={()=>this.props.getAPI()}/>
-      </View>
-    );
-  }
+  // const Increament = () => { dispatch(increment()); }
+  // const IncByAmount = (amount) => { dispatch(incByAmount(amount)); }
+  // const GetAPI = () => { dispatch(getAPI()); }
+  // return (
+  //   <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+  //     <AppText text={"Here:" + countState.count} size={29} />
+  //     <AppBTN marginTop={20} text={'inc'} onPress={Increament} />
+  //     <AppBTN marginTop={20} text={'incByVal'} onPress={() => IncByAmount(5)} />
+  //     <AppBTN marginTop={20} text={'GetAPI'} onPress={() => GetAPI()} />
+  //   </View>
+  // );
 }
-
-function mapStateToProps(state){
-  return{
-    count: state.count
-  }
-};
-
-function mapDispatchToProps(dispatch){
-  return{
-    increase:()=>dispatch(increase()),
-    decrease:()=>dispatch(decrease()),
-    incByAmount:(amount)=>dispatch(incByAmount(amount)),
-    getAPI:()=>dispatch(getAPI()),
-  }
-};
-
-export default connect(mapStateToProps,mapDispatchToProps)(NewScreen)

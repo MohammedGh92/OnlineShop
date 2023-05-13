@@ -11,7 +11,8 @@ class Welcome extends React.Component {
     loading: true
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    // AsyncStorage.clear();//T,R
     this.checkLunchedBefore();
   }
 

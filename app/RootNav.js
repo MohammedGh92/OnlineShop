@@ -61,10 +61,10 @@ export default function MyStack() {
     <NavigationContainer ref={navigationRef} theme={navTheme}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="NewScreen3" component={NewScreen3} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="NewScreen4" component={NewScreen4} />
-        <Stack.Screen name="NewScreen3" component={NewScreen3} />
         <Stack.Screen name="NewScreen" component={NewScreen} />
         <Stack.Screen name="NewScreen2" component={NewScreen2} />
         <Stack.Screen name="Sections" component={Sections} />
