@@ -8,7 +8,7 @@ const Photos = (props) => {
 
   function ImgItem(item, id) {
     return (
-      <View key={id}><AppImage source={item} resizeMode={'cover'} width={350} height={220} /></View>
+      <View key={id}><AppImage source={{uri:item}} resizeMode={'cover'} width={350} height={220} /></View>
     );
   }
 

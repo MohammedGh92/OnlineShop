@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
-import { AppTopBar, AppFlatList, AppLoader } from '../Common/';
+import React from 'react';
+import { View } from 'react-native';
+import { AppTopBar, AppFlatList, AppLoader, AppIcon, AppText } from '../Common/';
 const GLOBAL = require('../Common/Globals');
 import OrderItem from './Components/OrderItem';
 import user from '../../user';
@@ -34,6 +34,18 @@ class MyOrders extends React.Component {
 
   render() {
     const { loading, data } = this.state;
+
+    // if (!data)
+    return (
+      <View style={{ height: '100%', width: '100%' }}>
+        <AppTopBar title={'My Orders'} />
+        <View style={{ height: '75%', justifyContent: 'center', alignItems: 'center' }}>
+          <AppIcon name={'package-variant'} color={GLOBAL.Color.grey} size={170} />
+          <AppText marginTop={10} text="You don't have any orders!" color={GLOBAL.Color.black} size={20} />
+        </View>
+      </View>
+    )
+
     if (loading)
       return <AppLoader />
     return (

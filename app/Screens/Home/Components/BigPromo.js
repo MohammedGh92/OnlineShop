@@ -27,9 +27,9 @@ const BigPromo = (props) => {
   const {
     data
   } = props;
-
+  return (<View/>)//T,R
   return (
-    <View style={{ height: heightPixel(210) }}>
+    <View style={{ height: heightPixel(180) }}>
       <Swiper autoplay>
         {imgs(data)}
       </Swiper >

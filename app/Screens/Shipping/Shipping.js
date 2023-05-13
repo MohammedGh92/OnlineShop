@@ -4,24 +4,25 @@ import { heightPixel, widthPixel } from '../Common/Utils/PixelNormalization';
 import { AppTopBar, AppTextInput, AppBTN } from '../Common/';
 import firestore from '@react-native-firebase/firestore';
 import user from '../../user';
+import { floor } from 'react-native-reanimated';
 
 class Shipping extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
-      phone: '',
-      email: '',
-      country: '',
-      city: '',
-      province: '',
-      address: '',
-      neighbour: '',
-      buildingNo: '',
-      flootNu: '',
-      aptNo: '',
+      firstName: null,
+      lastName: null,
+      phone: null,
+      email: null,
+      country: null,
+      city: null,
+      province: null,
+      address: null,
+      neighbour: null,
+      buildingNo: null,
+      floorNu: null,
+      aptNo: null,
       loading: false
     }
   }
@@ -37,8 +38,41 @@ class Shipping extends React.Component {
       });
     this.props.navigation.navigate('PickLocation', {
       cart: this.props.route.params.cart,
-      shipping: this.state
+      shipping: this.getShippingObj()
     });
+  }
+
+  getShippingObj() {
+    let returnedObj = {};
+    const {
+      firstName,
+      lastName,
+      phone,
+      email,
+      country,
+      city,
+      province,
+      address,
+      neighbour,
+      buildingNo,
+      floorNu,
+      aptNo,
+    } = this.state;
+
+    firstName ? returnedObj.firstName = firstName : null;
+    lastName ? returnedObj.lastName = lastName : null;
+    phone ? returnedObj.phone = phone : null;
+    email ? returnedObj.email = email : null;
+    country ? returnedObj.country = country : null;
+    city ? returnedObj.city = city : null;
+    province ? returnedObj.province = province : null;
+    address ? returnedObj.address = address : null;
+    neighbour ? returnedObj.neighbour = neighbour : null;
+    buildingNo ? returnedObj.buildingNo = buildingNo : null;
+    floorNu ? returnedObj.floorNu = floorNu : null;
+    aptNo ? returnedObj.aptNo = aptNo : null;
+
+    return returnedObj;
   }
 
 
@@ -70,7 +104,7 @@ class Shipping extends React.Component {
             onEndEditing={(text) => this.setState({ buildingNo: text })} />
           <View style={{ marginTop: heightPixel(5), width: widthPixel(320), flexDirection: 'row', justifyContent: 'space-between' }}>
             <AppTextInput iconFlex={3} width={155} name={'format-list-numbered'} placeholder={'Floor number'}
-              onEndEditing={(text) => this.setState({ flootNu: text })} />
+              onEndEditing={(text) => this.setState({ floorNu: text })} />
             <AppTextInput iconFlex={3} width={155} name={'home'} placeholder={'Apartment no.'}
               onEndEditing={(text) => this.setState({ aptNo: text })} />
           </View>

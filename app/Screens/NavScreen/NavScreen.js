@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Alert, TouchableOpacity } from 'react-native';
 import { AppIcon, AppImage, AppText, AppTopBar, AppListItem, AppBottomBar } from '../Common/';
 import { fontPixel, normalize, heightPixel, widthPixel } from '../Common/Utils/PixelNormalization';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const GLOBAL = require('../Common');
+import user from '../../user';
 
 class NavScreen extends React.Component {
 
-  navToThisScreen(screenName) {
+  async navToThisScreen(screenName) {
     if (screenName == 'Under Development')
       Alert.alert('Under Development');
     else if (screenName == 'LogOut') {
+      await user.removeUser();
       this.props.navigation.reset({
         index: 0,
         routes: [{ name: 'Login' }],

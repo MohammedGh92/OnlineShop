@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, TextInput, Dimensions, Alert } from 'react-native';
 const { width: ScreenWidth, height: ScreenHeight, } = Dimensions.get('window');
-import { heightPixel, widthPixel, normalize } from '../Common/Utils/PixelNormalization';
-import { AppTopBar, AppFlatList, AppLoader, AppText, AppTextInput, AppBTN, AppBottomBar } from '../Common/';
+import { heightPixel, normalize } from '../Common/Utils/PixelNormalization';
+import { AppTopBar, AppIcon, AppLoader, AppFlatList, AppText, AppBTN, AppBottomBar } from '../Common/';
 const GLOBAL = require('../Common/Globals');
 import CartItem from './Components/CartItem';
 import { connect } from 'react-redux';
@@ -17,7 +17,8 @@ class Cart extends React.Component {
       subTotal: 0,
       shipping: 10,
       data: null,
-      loading: true,
+      fullLoading: true,
+      loading: false
     }
   }
 
@@ -31,14 +32,16 @@ class Cart extends React.Component {
       .doc(user.userObj.email)
       .get()
       .then(documentSnapshot => {
-        this.setState({ data: documentSnapshot.data().currentOrder.cart, loading: false });
+        this.setState({ data: documentSnapshot.data().currentOrder.cart, fullLoading: false });
         this.calculateTotal();
+      }).catch(error => {
+        this.setState({ data: null, fullLoading: false });
       });
   }
 
   calculateTotal() {
     let subTotal = 0;
-    const { data, loading } = this.state;
+    const { data } = this.state;
 
     data.map((item) => {
       const curItemQuantitiy = Number(item.quantity);
@@ -62,6 +65,7 @@ class Cart extends React.Component {
   }
 
   async onFinalizeClicked() {
+    this.setState({ loading: true })
     const { data } = this.state;
     await firestore()
       .collection('users')
@@ -93,19 +97,29 @@ class Cart extends React.Component {
     const {
       subTotal,
       shipping,
-      loading,
-      data
+      fullLoading,
+      data,
+      loading
     } = this.state;
 
-    if (loading)
+    if (fullLoading)
       return <AppLoader />
+
+    if (!data)
+      return (
+        <View style={{ justifyContent: 'center', alignItems: 'center', height: '80%', width: '100%' }}>
+          <AppIcon name={'cart-off'} color={GLOBAL.Color.grey} size={170} />
+          <AppText marginTop={10} text="Your cart is empty!" color={GLOBAL.Color.black} size={20} />
+        </View>
+      )
+
 
     return (
       <View style={{ width: '100%', height: '100%' }}>
         <View style={{ width: ScreenWidth, height: ScreenHeight * .88, alignItems: 'center' }}>
           <View style={{ width: '100%', height: heightPixel(330) }}>
             <AppFlatList numColumns={1} data={data}
-              renderItem={({ item }) => <CartItem item={item} onPlusOrMinusQuantity={this.onPlusOrMinusQuantity} />} />
+              renderItem={({ id, item }) => <CartItem key={id} item={item} onPlusOrMinusQuantity={this.onPlusOrMinusQuantity} />} />
           </View>
           <View style={{ alignItems: 'center', flexDirection: 'row', marginTop: heightPixel(30), width: '85%', height: '7%', borderRadius: normalize(30), backgroundColor: 'white' }}>
             <TextInput editable={false} placeholder={'\tPromo Code'} style={{ width: '65%' }} />
@@ -116,13 +130,18 @@ class Cart extends React.Component {
             {this.billItem('Shipping', '$' + shipping)}
             {this.billItem('Total', '$' + Number(subTotal + shipping), true)}
           </View>
-          <AppBTN marginTop={22} text={'Finalize Order'} onPress={() => this.onFinalizeClicked()} />
+          <AppBTN loading={loading} marginTop={22} text={'Finalize Order'} onPress={() => this.onFinalizeClicked()} />
         </View>
       </View>
     );
   }
 
   render() {
+
+    const {
+      fullLoading,
+      data
+    } = this.state;
 
     return (
       <View style={{ height: '100%', width: '100%' }}>

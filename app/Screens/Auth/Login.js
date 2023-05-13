@@ -2,26 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { TouchableOpacity, Alert, Dimensions, View, ScrollView } from 'react-native';
 const ScreenHeight = Dimensions.get('window').height;
 const ScreenWidth = Dimensions.get('window').width;
-import { AppText, LogoAndName, AppBTN, AppTextInput, AppLoader } from '../Common/';
+import { AppText, LogoAndName, AppBTN, AppLoader } from '../Common/';
 const GLOBAL = require('../Common/Globals');
 import { heightPixel } from '../Common/Utils/PixelNormalization';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import user from '../../user';
+import { LoginForm } from './Components/';
 
 export default function Login(props) {
 
   const [initializing, setInitializing] = useState(true);
   const [fullLoading, setFullLoading] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [pass, setPass] = useState('');
+  const [data, setData] = useState({ Status: 0 });
 
   useEffect(() => {
     auth().onAuthStateChanged(onAuthStateChanged);
-    checkSavedAccount();
-  }, []);
+    if (data.Status == 0)
+      checkSavedAccount();
+    else if (data.Status == 1)
+      onSignInClick();
+    else if (data.Status == 2)
+      saveUserDataLocally();
+  }, [data]);
 
   function onAuthStateChanged() {
     if (initializing) setInitializing(false);
@@ -47,13 +51,15 @@ export default function Login(props) {
   }
 
   function onSignInClick() {
-    if (email == '' || pass == '') {
-      Alert.alert('Please fill all the fields');
+    if (!data || loading)
       return;
-    }
+    const {
+      Email,
+      Password
+    } = data;
     setLoading(true);
     auth()
-      .signInWithEmailAndPassword(email, pass)
+      .signInWithEmailAndPassword(Email, Password)
       .then(() => {
         getUserFireStoreData();
       })
@@ -67,10 +73,12 @@ export default function Login(props) {
   }
 
   async function getUserFireStoreData() {
-    const fireStoreuser = await firestore().collection('users').doc(email).get();
-    setEmail(email);
-    setPhone(fireStoreuser._data.phone);
-    saveUserDataLocally();
+    const fireStoreuser = await firestore().collection('users').doc(data.Email).get();
+    setThisData(2, data.Email, '', fireStoreuser.data().phone);
+  }
+
+  function setThisData(status, email, password, phone) {
+    setData({ Status: status, Email: email, Password: password, Phone: phone });
   }
 
   function onSkipClick() {
@@ -82,16 +90,27 @@ export default function Login(props) {
   }
 
   async function saveUserDataLocally() {
-    const userObj = { email: email, phone: phone };
+    const {
+      Email,
+      Phone
+    } = data;
+    const userObj = { email: Email, phone: Phone };
     await user.saveData(userObj);
     moveToNextScreen();
   }
 
-  function submitEmail(email) { setEmail(email); }
-  function submitPass(pass) { setPass(pass); }
 
   if (initializing || fullLoading)
     return <AppLoader />
+
+
+  const onSubmit = data => {
+    const {
+      Email,
+      Password
+    } = data;
+    setThisData(1, Email, Password, '');
+  };
 
   return (
     <ScrollView>
@@ -99,12 +118,7 @@ export default function Login(props) {
         <LogoAndName />
         <AppText marginTop={27} text="Welcome back" size={24} />
         <AppText marginTop={3} text={"Login"} size={14} color={GLOBAL.Color.darkGrey} fontFamily={'Montserrat-SemiBold'} />
-        <AppTextInput marginTop={40} keyboardType={'email-address'} onEndEditing={submitEmail} />
-        <AppTextInput marginTop={10} name={'lock'} secureTextEntry placeholder={'Password'} onEndEditing={submitPass} />
-        <TouchableOpacity onPress={onForgotPasswordClick} style={{ marginTop: heightPixel(10) }}><AppText text={"Forget Password?"} color={GLOBAL.Color.darkGrey}
-          size={14} fontFamily={'Montserrat-SemiBold'} />
-        </TouchableOpacity>
-        <AppBTN onPress={onSignInClick} text={'Login'} marginTop={45} loading={loading} />
+        <LoginForm loading={loading} onForgotPasswordClick={onForgotPasswordClick} onSubmit={onSubmit} />
         <AppBTN onPress={onSkipClick} text={'Skip'} color={GLOBAL.Color.c3} marginTop={15} />
         <View style={{ marginTop: heightPixel(80), flexDirection: 'row' }}>
           <AppText text={"Don’t have account?"} color={GLOBAL.Color.darkGrey} size={16} fontFamily={'Montserrat-Bold'} />

@@ -7,6 +7,8 @@ const AppQuantity = (props) => {
 
   const [quantity, setQuantity] = useState(props.quantity ? props.quantity : 1);
 
+  console.log(props)
+
   const incAmount = () => {
     setQuantity(quantity + 1);
     triggerEvents(true);
@@ -21,7 +23,7 @@ const AppQuantity = (props) => {
 
   function triggerEvents(plusOrMinus) {
     if (props.updateQuantity)
-      props.updateQuantity(quantity+(plusOrMinus?1:-1));
+      props.updateQuantity(quantity + (plusOrMinus ? 1 : -1));
     if (props.plusOrMinusQuantity)
       props.plusOrMinusQuantity(plusOrMinus);
   }

@@ -1,103 +1,99 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dimensions, View, ScrollView, Alert } from 'react-native';
 const ScreenWidth = Dimensions.get('window').width;
 import { AppRoundedImage, AppTextInput, AppTopBar, AppText, AppBTN, AppBottomBar } from '../Common/';
 import { heightPixel } from '../Common/Utils/PixelNormalization';
 import user from '../../user';
 import firestore from '@react-native-firebase/firestore';
+import { ProfileForm } from './Components/';
 
-class Profile extends React.Component {
+export default function Profile(props) {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstName: user.userObj.firstName,
-      lastName: user.userObj.lastName,
-      phone: user.userObj.phone,
-      email: user.userObj.email,
-      loading: false
-    }
-    this.submitfirstName = this.submitfirstName.bind(this);
-    this.submitlastName = this.submitlastName.bind(this);
-    this.submitPhone = this.submitPhone.bind(this);
+  const [data, setData] = useState(getDataFirstState());
+  const [loading, setLoading] = useState(false);
+
+  const {
+    Status,
+    FirstName,
+    LastName,
+    Phone,
+    Email
+  } = data;
+
+  const {
+    firstName,
+    lastName,
+    phone,
+    email
+  } = user.userObj;
+
+  function getDataFirstState() {
+    return { Status: 0, FirstName: firstName, LastName: lastName, Phone: phone, Email: email }
   }
 
-  saveClicked() {
-    this.saveUserDataFireStore();
+  useEffect(() => {
+    if (!loading && Status === 1)
+      saveClicked();
+  }, [data]);
+
+  function saveClicked() {
+    setLoading(true)
+    saveUserDataFireStore();
   }
 
-  async saveUserDataFireStore() {
-    this.setState({ loading: true })
-    const {
-      firstName,
-      lastName,
-      phone,
-      email
-    } = this.state;
-
+  async function saveUserDataFireStore() {
     await firestore()
       .collection('users')
-      .doc(email)
+      .doc(Email)
       .set({
-        firstName: '' + firstName,
-        lastName: '' + lastName,
-        phone: '' + phone
+        firstName: '' + FirstName,
+        lastName: '' + LastName,
+        phone: '' + Phone
       })
       .then(() => {
-        console.log('User added!');
-        this.saveUserDataLocally();
-        this.setState({ loading: false })
+        saveUserDataLocally();
       });
   }
 
-  async saveUserDataLocally() {
-    const {
-      firstName,
-      lastName,
-      phone
-    } = this.state;
+  async function saveUserDataLocally() {
     const userSavedAcc = user.userObj;
-    userSavedAcc.firstName = firstName;
-    userSavedAcc.lastName = lastName;
-    userSavedAcc.phone = phone;
+    userSavedAcc.firstName = FirstName;
+    userSavedAcc.lastName = LastName;
+    userSavedAcc.phone = Phone;
     await user.saveData(userSavedAcc);
     Alert.alert('Your info saved successfully!');
+    setThisData(0)
+    setLoading(false)
   }
 
-  submitfirstName(firstName) { this.setState({ firstName: firstName }); }
-  submitlastName(lastName) { this.setState({ lastName: lastName }) }
-  submitPhone(phone) { this.setState({ phone: phone }) }
-
-  render() {
+  const onSubmit = data => {
     const {
-      firstName,
-      lastName,
-      phone,
-      email,
-      loading
-    } = this.state;
+      FirstName,
+      LastName,
+      Phone
+    } = data;
+    setThisData(1, FirstName, LastName, Phone);
+  };
 
-    return (
-      <View>
-        <ScrollView>
-          <View style={{
-            alignItems: 'center',
-            flexDirection: 'column',
-            height: heightPixel(787), width: ScreenWidth
-          }}>
-            <AppTopBar />
-            <AppRoundedImage marginTop={30} width={110} height={115} />
-            <AppTextInput marginTop={35} name={'account'} placeholder={'First name'} defaultValue={firstName} onEndEditing={this.submitfirstName} />
-            <AppTextInput marginTop={10} name={'account'} placeholder={'Last name'} defaultValue={lastName} onEndEditing={this.submitlastName} />
-            <AppTextInput marginTop={10} name={'cellphone'} text={1} onEndEditing={this.submitPhone} keyboardType={'numeric'} placeholder={'Phone'} defaultValue={phone} />
-            <AppTextInput editable={false} marginTop={10} defaultValue={email} />
-            <AppBTN text={'Save'} marginTop={160} onPress={() => this.saveClicked()} loading={loading} />
-          </View>
-        </ScrollView>
-        <AppBottomBar choosed={4} />
-      </View>
-    );
+  function setThisData(status, firstName, lastName, phone) {
+    setData({ Status: status, FirstName: firstName, LastName: lastName, Phone: phone, Email: email });
   }
-}
 
-export default Profile;
+  return (
+    <View>
+      <ScrollView>
+        <View style={{
+          alignItems: 'center',
+          flexDirection: 'column',
+          height: heightPixel(787), width: ScreenWidth
+        }}>
+          <AppTopBar />
+          <AppRoundedImage marginTop={30} width={110} height={115} />
+          <ProfileForm loading={loading} onSubmitClicked={onSubmit} userObj={user.userObj} />
+        </View>
+      </ScrollView>
+      <AppBottomBar choosed={4} />
+    </View>
+  );
+
+}

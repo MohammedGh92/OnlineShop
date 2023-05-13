@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { AppText, LogoAndName, AppImage, AppBTN, AppLoader } from '../Common/';
 const GLOBAL = require('../Common/Globals');
@@ -12,7 +12,6 @@ class Welcome extends React.Component {
   }
 
   componentDidMount() {
-    // AsyncStorage.clear();//T,R
     this.checkLunchedBefore();
   }
 

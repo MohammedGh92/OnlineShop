@@ -19,7 +19,7 @@ const AppSearchBar = (props) => {
 
   return (
     <View style={{
-      width: '100%', height: heightPixel(80), backgroundColor: 'red',
+      width: '100%', height: heightPixel(80),
       flexDirection: 'row', alignItems: 'center', backgroundColor: GLOBAL.Color.c1
     }}>
       <TouchableOpacity onPress={onMenuClick} style={{ margin: normalize(10) }}><AppIcon size={38} name={props.leftIcon ? props.leftIcon : 'menu'} /></TouchableOpacity>

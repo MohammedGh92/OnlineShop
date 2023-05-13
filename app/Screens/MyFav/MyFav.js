@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, Alert } from 'react-native';
 import { AppTopBar, AppFlatList } from '../Common/';
-const GLOBAL = require('../Common/Globals');
 import FavItem from './Components/FavItem';
-import Data from '../MockData/data';
 
 class MyFav extends React.Component {
 
@@ -15,7 +13,7 @@ class MyFav extends React.Component {
     return (
       <View style={{ alignItems: 'center' }}>
         <AppTopBar title={'Favourites'} />
-        <AppFlatList numColumns={1} data={Data.Home.MostOrdered} renderItem={({ item }) => <FavItem item={item} />} />
+        <AppFlatList numColumns={1} renderItem={({ item }) => <FavItem item={item} />} />
       </View>
     );
   }

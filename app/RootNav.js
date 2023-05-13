@@ -28,6 +28,7 @@ import Privacy from './Screens/Privacy/Privacy';
 import NewScreen from './Screens/NewScreen/NewScreen';
 import NewScreen2 from './Screens/NewScreen2/NewScreen2';
 import NewScreen3 from './Screens/NewScreen3/NewScreen3';
+import NewScreen4 from './Screens/NewScreen4/NewScreen4';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createNavigationContainerRef } from '@react-navigation/native';
 import {
@@ -60,11 +61,12 @@ export default function MyStack() {
     <NavigationContainer ref={navigationRef} theme={navTheme}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Welcome" component={Welcome} />
-        <Stack.Screen name="NewScreen3" component={NewScreen3} />
-        <Stack.Screen name="NewScreen2" component={NewScreen2} />
-        <Stack.Screen name="NewScreen" component={NewScreen} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="NewScreen4" component={NewScreen4} />
+        <Stack.Screen name="NewScreen3" component={NewScreen3} />
+        <Stack.Screen name="NewScreen" component={NewScreen} />
+        <Stack.Screen name="NewScreen2" component={NewScreen2} />
         <Stack.Screen name="Sections" component={Sections} />
         <Stack.Screen name="ForgetPass" component={ForgetPass} />
         <Stack.Screen name="Home" component={Home} />

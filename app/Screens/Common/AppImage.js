@@ -10,7 +10,8 @@ const AppImage = (props) => {
       width: widthPixel(props.width ? props.width : 320),
       height: heightPixel(props.height ? props.height : 275)
     }, { ...props.style }]}
-      resizeMode={props.resizeMode ? props.resizeMode : 'contain'} source={props.source ? props.source : require('../../Assets/sampleImg.jpg')} />
+      resizeMode={props.resizeMode ? props.resizeMode : 'contain'}
+      source={props.source ? props.source : require('../../Assets/sampleImg.jpg')} />
   );
 }
 
